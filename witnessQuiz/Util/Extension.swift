@@ -18,7 +18,6 @@ extension UIColor {
         self.init(red: CGFloat(red) / 255.0, green: CGFloat(green) / 255.0, blue: CGFloat(blue) / 255.0, alpha: 1.0)
     }
     
-    
     convenience init(hex: Int) {
         
         let components = (
@@ -35,6 +34,7 @@ extension UIColor {
         self.init(red:(netHex >> 16) & 0xff, green:(netHex >> 8) & 0xff, blue:netHex & 0xff)
     }
 }
+
 extension UIColor {
     convenience init(hexString: String) {
         let hex = hexString.trimmingCharacters(in: CharacterSet.alphanumerics.inverted)
@@ -55,27 +55,28 @@ extension UIColor {
     }
 }
 
+extension UINavigationController {
+    func hideShadow(){
+        self.navigationBar.setValue(true, forKey: "hidesShadow")
+    }
+}
 
-let  topBackgroundColor:UIColor = UIColor(hex:0x6195D4)
-let  greenCheckMarkColor = UIColor(hex:0x00853F)
-let  dukeBlue = UIColor(hex:0x009688)
-let  dukeDarkBlue = UIColor(hex:0x005984)
-let  dukeGreenColor = UIColor(hexString: "7EB47C")
-let  appGrayColor = UIColor(hex:0x808080)
-let  dukeRed = UIColor(hexString: "D55E62")
-let  dukeGray = UIColor(hex:0x4A4A4A)
-let  standardButton = UIColor(hex:0x008BB0)
-let  successColor = UIColor(hex:0x1C6B34)
-let  errorColor = UIColor(hex:0x9D2235)
-let  formBorderInactiveColor = UIColor(hex:0xD8D8D8)
-let  activeButtonColor = UIColor(hex:0x007FAC)
-let  radioSelectedColor = UIColor(hex: 0x4A4A4A)
-let  radioDeselectedColor = UIColor(hex: 0x9B9B9B)
-let  linkColor = UIColor(hex:0x077FAA)
-let  lineColor = UIColor(hex: 0x979797)
-let  lightTextGray = UIColor(hex: 0x696969)
-let  buttonDisabled = UIColor(hex:0x999999)
-let  darkTextGray = UIColor(hex:0x282828)
-let  tableViewBackground = UIColor(hex:0xF2F4F4)
+let blue = UIColor(hex:0x009688)
+let darkBlue = UIColor(hex:0x005984)
+let greenColor = UIColor(hexString: "7EB47C")
+let red = UIColor(hexString: "D55E62")
 let buttonColor = UIColor(hexString: "0D9EDF")
 
+func shuffleArray(arrayToBeShuffled array1: [Question]) -> [Question]{
+    var oldArray = array1
+    var newArray = [Question]()
+    var randomQuestion: Int
+    
+    for _ in array1 {
+        randomQuestion = Int(arc4random_uniform(UInt32(oldArray.count - 1)))
+        newArray.append(oldArray[randomQuestion])
+        oldArray.remove(at: randomQuestion)
+    }
+    
+    return newArray
+}

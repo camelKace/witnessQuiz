@@ -24,10 +24,6 @@ class ResultVC: UIViewController {
         setupUI()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-//        setupUI()
-    }
-    
     func setupUI() {
         // Set up Mins and Secs Label
         let minutes = "\(String(format: "%02d", counter / 60)) Min"

@@ -12,11 +12,7 @@ import Lottie
 var timer = Timer()
 var isRunning = false
 var counter = 0
-extension UINavigationController {
-    func hideShadow(){
-        self.navigationBar.setValue(true, forKey: "hidesShadow")
-    }
-}
+
 class QuestionViewController: UIViewController {
     @IBOutlet var nextButton: UIButton!
     @IBOutlet var animationV2: AnimationView!
@@ -61,37 +57,37 @@ class QuestionViewController: UIViewController {
         settingUpAnimations(sender: sender)
         switch selectedAnswer {
         case 1:
-            choseA.backgroundColor = dukeGreenColor
-            choseB.backgroundColor = dukeRed
-            choseC.backgroundColor = dukeRed
-            choseD.backgroundColor = dukeRed
+            choseA.backgroundColor = greenColor
+            choseB.backgroundColor = red
+            choseC.backgroundColor = red
+            choseD.backgroundColor = red
             choseB.isEnabled = false
             choseC.isEnabled = false
             choseD.isEnabled = false
             choseA.isEnabled = false
         case 2:
-            choseB.backgroundColor = dukeGreenColor
-            choseA.backgroundColor = dukeRed
-            choseC.backgroundColor = dukeRed
-            choseD.backgroundColor = dukeRed
+            choseB.backgroundColor = greenColor
+            choseA.backgroundColor = red
+            choseC.backgroundColor = red
+            choseD.backgroundColor = red
             choseA.isEnabled = false
             choseC.isEnabled = false
             choseD.isEnabled = false
             choseB.isEnabled = false
         case 3:
-            choseC.backgroundColor = dukeGreenColor
-            choseB.backgroundColor = dukeRed
-            choseA.backgroundColor = dukeRed
-            choseD.backgroundColor = dukeRed
+            choseC.backgroundColor = greenColor
+            choseB.backgroundColor = red
+            choseA.backgroundColor = red
+            choseD.backgroundColor = red
             choseB.isEnabled = false
             choseA.isEnabled = false
             choseD.isEnabled = false
             choseC.isEnabled = false
         case 4:
-            choseD.backgroundColor = dukeGreenColor
-            choseB.backgroundColor = dukeRed
-            choseC.backgroundColor = dukeRed
-            choseA.backgroundColor = dukeRed
+            choseD.backgroundColor = greenColor
+            choseB.backgroundColor = red
+            choseC.backgroundColor = red
+            choseA.backgroundColor = red
             choseB.isEnabled = false
             choseC.isEnabled = false
             choseA.isEnabled = false
@@ -143,7 +139,6 @@ class QuestionViewController: UIViewController {
     
     func updateQuestion() {
         if questionNumber <= allQuestions.list.count - 1{
-            
             questionLabel.text = allQuestions.shuffled[questionNumber].question
             choseA.setTitle(allQuestions.shuffled[questionNumber].optionA, for: .normal)
             choseB.setTitle(allQuestions.shuffled[questionNumber].optionB, for: .normal)
@@ -163,7 +158,6 @@ class QuestionViewController: UIViewController {
     }
     
     func updateUI() {
-        
         //Update Score Label
         scoreLabel.text = "Score: \(score)"
         
@@ -182,6 +176,7 @@ class QuestionViewController: UIViewController {
         if questionNumber == allQuestions.list.count - 1 {
             nextButton.setTitle("Finish Quiz", for: .normal)
         }
+        
         addShadow()
         
         //Hide Animation Views

@@ -9,6 +9,11 @@
 import Foundation
 import UIKit
 
+let blue = UIColor(hex:0x009688)
+let greenColor = UIColor(hexString: "7EB47C")
+let red = UIColor(hexString: "D55E62")
+let buttonColor = UIColor(hexString: "0D9EDF")
+
 extension UIColor {
     convenience init(red: Int, green: Int, blue: Int) {
         assert(red >= 0 && red <= 255, "Invalid red component")
@@ -60,23 +65,13 @@ extension UINavigationController {
         self.navigationBar.setValue(true, forKey: "hidesShadow")
     }
 }
-
-let blue = UIColor(hex:0x009688)
-let darkBlue = UIColor(hex:0x005984)
-let greenColor = UIColor(hexString: "7EB47C")
-let red = UIColor(hexString: "D55E62")
-let buttonColor = UIColor(hexString: "0D9EDF")
-
-func shuffleArray(arrayToBeShuffled array1: [Question]) -> [Question]{
-    var oldArray = array1
-    var newArray = [Question]()
-    var randomQuestion: Int
-    
-    for _ in array1 {
-        randomQuestion = Int(arc4random_uniform(UInt32(oldArray.count - 1)))
-        newArray.append(oldArray[randomQuestion])
-        oldArray.remove(at: randomQuestion)
+extension Array {
+    /// Picks `n` random elements (partial Fisher-Yates shuffle approach)
+    subscript (randomPick n: Int) -> [Element] {
+        var copy = self
+        for i in stride(from: count - 1, to: count - n - 1, by: -1) {
+            copy.swapAt(i, Int(arc4random_uniform(UInt32(i + 1))))
+        }
+        return Array(copy.suffix(n))
     }
-    
-    return newArray
 }

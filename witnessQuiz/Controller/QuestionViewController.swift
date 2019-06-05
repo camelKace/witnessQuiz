@@ -124,12 +124,12 @@ class QuestionViewController: UIViewController {
     
     func sendToResults() {
         //Send to ResultsVC if quiz reaches last question
-        if questionNumber == allQuestions.list.count {
+        if questionNumber == allQuestions.shuffled.count {
             if let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Result") as? ResultVC {
                 timer.invalidate()
                 isRunning = false
                 viewController.scre = score
-                viewController.totalQuestions = allQuestions.list.count
+                viewController.totalQuestions = allQuestions.shuffled.count
                 if let navigator = navigationController {
                     navigator.pushViewController(viewController, animated: true)
                 }
@@ -138,7 +138,7 @@ class QuestionViewController: UIViewController {
     }
     
     func updateQuestion() {
-        if questionNumber <= allQuestions.list.count - 1{
+        if questionNumber <= allQuestions.shuffled.count - 1{
             questionLabel.text = allQuestions.shuffled[questionNumber].question
             choseA.setTitle(allQuestions.shuffled[questionNumber].optionA, for: .normal)
             choseB.setTitle(allQuestions.shuffled[questionNumber].optionB, for: .normal)
@@ -162,18 +162,18 @@ class QuestionViewController: UIViewController {
         scoreLabel.text = "Score: \(score)"
         
         //Update Question Number Label
-        if questionNumber != allQuestions.list.count {
-            questionCounter.text = "\(questionNumber + 1) / \(allQuestions.list.count)"
+        if questionNumber != allQuestions.shuffled.count {
+            questionCounter.text = "\(questionNumber + 1) / \(allQuestions.shuffled.count)"
         }
         
         //Update Progress View
         UIView.animate(withDuration: 0.25, animations: {
-            self.progressView.frame.size.width = (self.view.frame.width / CGFloat(self.allQuestions.list.count)) * CGFloat(self.questionNumber + 1)
+            self.progressView.frame.size.width = (self.view.frame.width / CGFloat(self.allQuestions.shuffled.count)) * CGFloat(self.questionNumber + 1)
         self.progressView.layoutIfNeeded()
         })
         
         // Update Button UI
-        if questionNumber == allQuestions.list.count - 1 {
+        if questionNumber == allQuestions.shuffled.count - 1 {
             nextButton.setTitle("Finish Quiz", for: .normal)
         }
         

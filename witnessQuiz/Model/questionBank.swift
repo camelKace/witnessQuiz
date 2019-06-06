@@ -42,6 +42,9 @@ class QuestionBank {
         list.append(Question(questionText: "What Bible book comes after Acts?", choiceA: "John", choiceB: "Matthew", choiceC: "Luke", choiceD: "Romans", answer: 4))
         list.append(Question(questionText: "Which one of these match this Bible text? May people know that you, whose name is Jehovah You alone are the Most High over all the earth...", choiceA: "Job 13:8", choiceB: "Psalm 83:18", choiceC: "Esther 2:6", choiceD: "1 Samuel 9:27", answer: 2))
         list.append(Question(questionText: "The name of Jocob’s twin brother was?", choiceA: "E’sau", choiceB: "Benjamin", choiceC: "Issac", choiceD: "Joseph", answer: 1))
+        list.append(Question(questionText: "How many books in the Hebrew Scriptures?", choiceA: "5", choiceB: "17", choiceC: "39", choiceD: "20", answer: 3))
+        list.append(Question(questionText: "THow many books in the Greek scriptures?", choiceA: "27", choiceB: "40", choiceC: "15", choiceD: "5", answer: 1))
+        list.append(Question(questionText: "How many books of the Hebrew scriptures did Moses write?", choiceA: "2", choiceB: "6", choiceC: "1", choiceD: "9", answer: 2))
         
         shuffled = list[randomPick: 15]
     }

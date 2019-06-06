@@ -14,9 +14,10 @@ var isRunning = false
 var counter = 0
 
 class QuestionViewController: UIViewController {
+    @IBOutlet var thumbsUpView: AnimationView!
+    @IBOutlet var thumbsDownView: AnimationView!
     @IBOutlet var nextButton: UIButton!
-    @IBOutlet var animationV2: AnimationView!
-    @IBOutlet var animationView: AnimationView!
+    
     @IBOutlet weak var questionCounter: UILabel!
     @IBOutlet weak var progressView: UIView!
     @IBOutlet weak var scoreLabel: UILabel!
@@ -25,8 +26,7 @@ class QuestionViewController: UIViewController {
     @IBOutlet weak var choseB: UIButton!
     @IBOutlet weak var choseC: UIButton!
     @IBOutlet weak var choseD: UIButton!
-    
-    let allQuestions = QuestionBank()
+    var questionBank: [Question]?
     var questionNumber: Int = 0
     var score: Int = 0
     var selectedAnswer: Int = 0
@@ -36,7 +36,6 @@ class QuestionViewController: UIViewController {
         restartQuiz()
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         self.navigationController?.hideShadow()
-        navigationController?.title = "witnessQuiz"
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -44,6 +43,7 @@ class QuestionViewController: UIViewController {
         restartQuiz()
         setUpTimer()
     }
+    
     func setUpTimer() {
         counter = 0
         isRunning = true
@@ -102,17 +102,17 @@ class QuestionViewController: UIViewController {
         if sender.tag == selectedAnswer {
             let thumbsUpAnimation =  AnimationView(name: "2393-green-like")
             thumbsUpAnimation.contentMode = .scaleAspectFit
-            self.animationView.addSubview(thumbsUpAnimation)
-            thumbsUpAnimation.frame = self.animationView.bounds
-            animationView.alpha = 1
+            self.thumbsUpView.addSubview(thumbsUpAnimation)
+            thumbsUpAnimation.frame = self.thumbsUpView.bounds
+            thumbsUpView.alpha = 1
             thumbsUpAnimation.play()
             score += 1
         } else {
             let dislikeAnimation =  AnimationView(name: "2394-dislike")
             dislikeAnimation.contentMode = .scaleAspectFit
-            self.animationV2.addSubview(dislikeAnimation)
-            dislikeAnimation.frame = self.animationV2.bounds
-            animationV2.alpha = 1
+            self.thumbsDownView.addSubview(dislikeAnimation)
+            dislikeAnimation.frame = self.thumbsDownView.bounds
+            thumbsDownView.alpha = 1
             dislikeAnimation.play()
         }
     }
@@ -125,12 +125,12 @@ class QuestionViewController: UIViewController {
     
     func sendToResults() {
         //Send to ResultsVC if quiz reaches last question
-        if questionNumber == allQuestions.shuffled.count {
+        if questionNumber == 10 {
             if let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Result") as? ResultVC {
                 timer.invalidate()
                 isRunning = false
                 viewController.scre = score
-                viewController.totalQuestions = allQuestions.shuffled.count
+                viewController.totalQuestions = 10
                 if let navigator = navigationController {
                     navigator.pushViewController(viewController, animated: true)
                 }
@@ -139,13 +139,13 @@ class QuestionViewController: UIViewController {
     }
     
     func updateQuestion() {
-        if questionNumber <= allQuestions.shuffled.count - 1{
-            questionLabel.text = allQuestions.shuffled[questionNumber].question
-            choseA.setTitle(allQuestions.shuffled[questionNumber].optionA, for: .normal)
-            choseB.setTitle(allQuestions.shuffled[questionNumber].optionB, for: .normal)
-            choseC.setTitle(allQuestions.shuffled[questionNumber].optionC, for: .normal)
-            choseD.setTitle(allQuestions.shuffled[questionNumber].optionD, for: .normal)
-            selectedAnswer = allQuestions.shuffled[questionNumber].correctAnswer
+        func switchQuestionBank(arrayOfQuestions: [Question]) {
+            questionLabel.text = arrayOfQuestions[questionNumber].question
+            choseA.setTitle(arrayOfQuestions[questionNumber].optionA, for: .normal)
+            choseB.setTitle(arrayOfQuestions[questionNumber].optionB, for: .normal)
+            choseC.setTitle(arrayOfQuestions[questionNumber].optionC, for: .normal)
+            choseD.setTitle(arrayOfQuestions[questionNumber].optionD, for: .normal)
+            selectedAnswer = arrayOfQuestions[questionNumber].correctAnswer
             choseA.backgroundColor = buttonColor
             choseB.backgroundColor = buttonColor
             choseC.backgroundColor = buttonColor
@@ -155,6 +155,11 @@ class QuestionViewController: UIViewController {
             choseC.isEnabled = true
             choseD.isEnabled = true
         }
+        
+        if questionNumber <= 10 - 1{
+            switchQuestionBank(arrayOfQuestions: questionBank!)
+        }
+        
         updateUI()
     }
     
@@ -163,26 +168,24 @@ class QuestionViewController: UIViewController {
         scoreLabel.text = "Score: \(score)"
         
         //Update Question Number Label
-        if questionNumber != allQuestions.shuffled.count {
-            questionCounter.text = "\(questionNumber + 1) / \(allQuestions.shuffled.count)"
+        if questionNumber != 10 {
+            questionCounter.text = "\(questionNumber + 1) / \(10)"
         }
         
         //Update Progress View
         UIView.animate(withDuration: 0.25, animations: {
-            self.progressView.frame.size.width = (self.view.frame.width / CGFloat(self.allQuestions.shuffled.count)) * CGFloat(self.questionNumber + 1)
+            self.progressView.frame.size.width = (self.view.frame.width / CGFloat(10)) * CGFloat(self.questionNumber + 1)
         self.progressView.layoutIfNeeded()
         })
         
         // Update Button UI
-        if questionNumber == allQuestions.shuffled.count - 1 {
+        if questionNumber == 10 - 1 {
             nextButton.setTitle("Finish Quiz", for: .normal)
         }
         
-        addShadow()
-        
         //Hide Animation Views
-        animationView.alpha = 0
-        animationV2.alpha = 0
+        thumbsDownView.alpha = 0
+        thumbsUpView.alpha = 0
     }
     
     func addShadow() {

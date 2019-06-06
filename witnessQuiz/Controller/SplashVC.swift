@@ -10,21 +10,51 @@ import UIKit
 import MessageUI
 
 class SplashVC: UIViewController {
+    var questions: [Question]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //addShadow()
+       
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        questions = [Question]()
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         self.navigationController?.hideShadow()
+        navigationController?.navigationBar.barTintColor = UIColor.white
     }
 
-    @IBAction func startQuizButtonPressed(_ sender: UIButton) {
+    func setQuestionBank(q: [Question]) {
         if let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Question") as? QuestionViewController {
+            questions = q
+            viewController.questionBank = questions
             if let navigator = navigationController {
                 navigator.pushViewController(viewController, animated: true)
             }
         }
     }
     
+    @IBAction func levelButtonPressed(_ sender: UIButton) {
+        switch sender.tag {
+        case 1:
+            setQuestionBank(q: EasyQuestionBank.init().shuffled)
+        case 2:
+            setQuestionBank(q: MediumQuestionBank.init().shuffled)
+        case 3:
+            setQuestionBank(q: HardQuestionBank.init().shuffled)
+        default:
+         setQuestionBank(q: EasyQuestionBank.init().shuffled)
+        }
+    }
+    
+    func addShadow() {
+//        startButton.layer.shadowColor = UIColor.gray.cgColor
+//        startButton.layer.shadowRadius = 5
+//        startButton.layer.shadowOpacity = 4
+//        startButton.layer.shadowOffset = CGSize(width: 0, height: 0)
+    }
+
     @IBAction func suggestQuestionPressed(_ sender: UIButton) {
         let mailComposerViewController = configureMailController()
         if MFMailComposeViewController.canSendMail() {
@@ -42,7 +72,6 @@ class SplashVC: UIViewController {
     
 }
 extension SplashVC: MFMailComposeViewControllerDelegate {
-    
     func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
         
         if let _ = error {

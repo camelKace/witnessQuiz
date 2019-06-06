@@ -36,6 +36,7 @@ class QuestionViewController: UIViewController {
         restartQuiz()
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         self.navigationController?.hideShadow()
+        navigationController?.title = "witnessQuiz"
     }
     
     override func viewWillAppear(_ animated: Bool) {

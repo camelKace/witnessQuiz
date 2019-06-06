@@ -9,7 +9,6 @@
 import Foundation
 import UIKit
 
-let blue = UIColor(hex:0x009688)
 let greenColor = UIColor(hexString: "7EB47C")
 let red = UIColor(hexString: "D55E62")
 let buttonColor = UIColor(hexString: "0D9EDF")

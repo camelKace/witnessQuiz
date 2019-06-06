@@ -28,7 +28,7 @@ class QuestionBank {
         list.append(Question(questionText: "What Bible book goes after Job?", choiceA: "Proverbs", choiceB: "Numbers", choiceC: "Psalms", choiceD: "Lamentations", answer: 3))
         list.append(Question(questionText: "Who did Jehovah use to part the Red Sea?", choiceA: "Moses", choiceB: "Aaron", choiceC: "Joshua", choiceD: "None of the above", answer: 1))
         list.append(Question(questionText: "How many people did Jesus feed with 7 loaves of bread and a few small fish?", choiceA: "1000", choiceB: "200", choiceC: "4000", choiceD: "5000", answer: 3))
-        list.append(Question(questionText: "Who was the king that wanted to build a tower so tall that would reach into the heavens?", choiceA: "Hezekiah", choiceB: "Nim’rod", choiceC: "David", choiceD: "Pharoah", answer: 2))
+        list.append(Question(questionText: "Who was the King that wanted to build a tower so tall that would reach into the heavens?", choiceA: "Hezekiah", choiceB: "Nim’rod", choiceC: "David", choiceD: "Pharoah", answer: 2))
         list.append(Question(questionText: "Who is the Bible character Jehovah spoke to through a bush on fire?", choiceA: "Timothy", choiceB: "Daniel", choiceC: "Moses", choiceD: "Joseph", answer: 3))
         list.append(Question(questionText: "Where was Ra’hab living when she hid the two Israelite spies?", choiceA: "Isreal", choiceB: "Haran", choiceC: "Babylon", choiceD: "Jericho", answer: 4))
         list.append(Question(questionText: "Who was the strongest man who ever lived on earth?", choiceA: "Jesus", choiceB: "Micah", choiceC: "Samson", choiceD: "David", answer: 3))

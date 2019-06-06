@@ -11,6 +11,7 @@ import Lottie
 
 class ResultVC: UIViewController {
 
+    @IBOutlet var homeButton: UIButton!
     @IBOutlet var restartButton: UIButton!
     @IBOutlet var resultLabel: UILabel!
     @IBOutlet var feedbackLabel: UILabel!
@@ -24,7 +25,16 @@ class ResultVC: UIViewController {
         setupUI()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
+    @IBAction func homeButtonPressed(_ sender: Any) {
+        if let destinationViewController = navigationController?.viewControllers.filter({$0.classForCoder == SplashVC.self}).first {
+            navigationController?.popToViewController(destinationViewController, animated: true)
+        }
+    }
+    
+    @IBAction func restartButton(_ sender: Any) {
+        if let destinationViewController = navigationController?.viewControllers.filter({$0.classForCoder == QuestionViewController.self}).first {
+            navigationController?.popToViewController(destinationViewController, animated: true)
+        }
     }
     
     func setupUI() {
@@ -39,7 +49,7 @@ class ResultVC: UIViewController {
         }
         
         //Update Feedback label depending on score
-        if scre <= 12 {
+        if scre <= 8 {
             feedbackLabel.text = "Keep studying, try the quiz again!"
         } else {
             feedbackLabel.text = "Great job on the quiz, keep it up!"
@@ -60,12 +70,10 @@ class ResultVC: UIViewController {
         restartButton.layer.shadowRadius = 5
         restartButton.layer.shadowOpacity = 4
         restartButton.layer.shadowOffset = CGSize(width: 0, height: 0)
-    }
-    
-    @IBAction func restartButton(_ sender: Any) {
-        if let destinationViewController = navigationController?.viewControllers.filter({$0.classForCoder == QuestionViewController.self}).first {
-        navigationController?.popToViewController(destinationViewController, animated: true)
-        }
+        homeButton.layer.shadowColor = UIColor.gray.cgColor
+        homeButton.layer.shadowRadius = 5
+        homeButton.layer.shadowOpacity = 4
+        homeButton.layer.shadowOffset = CGSize(width: 0, height: 0)
     }
     
 }

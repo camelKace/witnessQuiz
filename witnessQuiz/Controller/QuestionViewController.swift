@@ -42,6 +42,7 @@ class QuestionViewController: UIViewController {
         super.viewWillAppear(animated)
         restartQuiz()
         setUpTimer()
+        addShadow()
     }
     
     func setUpTimer() {

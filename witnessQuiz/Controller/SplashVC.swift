@@ -11,11 +11,13 @@ import MessageUI
 
 class SplashVC: UIViewController {
     var questions: [Question]?
+    @IBOutlet var easyButton: UIButton!
+    @IBOutlet var mediumButton: UIButton!
+    @IBOutlet var hardButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //addShadow()
-       
+        addShadow()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -49,19 +51,39 @@ class SplashVC: UIViewController {
     }
     
     func addShadow() {
-//        startButton.layer.shadowColor = UIColor.gray.cgColor
-//        startButton.layer.shadowRadius = 5
-//        startButton.layer.shadowOpacity = 4
-//        startButton.layer.shadowOffset = CGSize(width: 0, height: 0)
+        easyButton.layer.shadowColor = UIColor.gray.cgColor
+        easyButton.layer.shadowRadius = 5
+        easyButton.layer.shadowOpacity = 4
+        easyButton.layer.shadowOffset = CGSize(width: 0, height: 0)
+        mediumButton.layer.shadowColor = UIColor.gray.cgColor
+        mediumButton.layer.shadowRadius = 5
+        mediumButton.layer.shadowOpacity = 4
+        mediumButton.layer.shadowOffset = CGSize(width: 0, height: 0)
+        hardButton.layer.shadowColor = UIColor.gray.cgColor
+        hardButton.layer.shadowRadius = 5
+        hardButton.layer.shadowOpacity = 4
+        hardButton.layer.shadowOffset = CGSize(width: 0, height: 0)
     }
 
     @IBAction func suggestQuestionPressed(_ sender: UIButton) {
-        let mailComposerViewController = configureMailController()
-        if MFMailComposeViewController.canSendMail() {
-            self.present(mailComposerViewController, animated: true, completion: nil)
-        } else {
-            showMailError()
+        let alert = UIAlertController(title: "Sending Suggestions", message: "Emailing a question requires that you also send the answer to the question. The answer needs to have backing sent along with it from the scriptures or Society publications.", preferredStyle: UIAlertController.Style.alert)
+        let okAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default) {
+            UIAlertAction in
+            let mailComposerViewController = self.configureMailController()
+            if MFMailComposeViewController.canSendMail() {
+                self.present(mailComposerViewController, animated: true, completion: nil)
+            } else {
+                self.showMailError()
+            }
         }
+        let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel) { (UIAlertAction) in
+            alert.dismiss(animated: true, completion: nil)
+        }
+        alert.addAction(okAction)
+        alert.addAction(cancelAction)
+        self.present(alert, animated: true, completion: nil)
+        
+        
     }
     
     func showMailError() {
@@ -102,7 +124,7 @@ extension SplashVC: MFMailComposeViewControllerDelegate {
         mailComposerVC.mailComposeDelegate = self
         mailComposerVC.setToRecipients(["witnessQuizApp@gmail.com"])
         mailComposerVC.setSubject("Question Suggestion")
-        mailComposerVC.setMessageBody("", isHTML: false)
+        mailComposerVC.setMessageBody("Question: \nBacking:", isHTML: false)
         
         return mailComposerVC
     }

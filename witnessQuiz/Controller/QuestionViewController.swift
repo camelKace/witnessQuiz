@@ -34,6 +34,7 @@ class QuestionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         restartQuiz()
+        navigationController?.navigationBar.topItem?.title = ""
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         self.navigationController?.hideShadow()
     }
@@ -66,6 +67,10 @@ class QuestionViewController: UIViewController {
             choseC.isEnabled = false
             choseD.isEnabled = false
             choseA.isEnabled = false
+            choseA.pulsate()
+            choseB.shake()
+            choseC.shake()
+            choseD.shake()
         case 2:
             choseB.backgroundColor = greenColor
             choseA.backgroundColor = red
@@ -75,6 +80,10 @@ class QuestionViewController: UIViewController {
             choseC.isEnabled = false
             choseD.isEnabled = false
             choseB.isEnabled = false
+            choseB.pulsate()
+            choseA.shake()
+            choseC.shake()
+            choseD.shake()
         case 3:
             choseC.backgroundColor = greenColor
             choseB.backgroundColor = red
@@ -84,6 +93,10 @@ class QuestionViewController: UIViewController {
             choseA.isEnabled = false
             choseD.isEnabled = false
             choseC.isEnabled = false
+            choseC.pulsate()
+            choseB.shake()
+            choseA.shake()
+            choseD.shake()
         case 4:
             choseD.backgroundColor = greenColor
             choseB.backgroundColor = red
@@ -93,6 +106,10 @@ class QuestionViewController: UIViewController {
             choseC.isEnabled = false
             choseA.isEnabled = false
             choseD.isEnabled = false
+            choseD.pulsate()
+            choseB.shake()
+            choseC.shake()
+            choseA.shake()
         default:
             print("Unknown")
         }

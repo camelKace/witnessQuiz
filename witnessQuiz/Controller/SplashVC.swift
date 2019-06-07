@@ -18,6 +18,9 @@ class SplashVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        addShadowButton(button: easyButton)
+        addShadowButton(button: mediumButton)
+        addShadowButton(button: hardButton)
     }
     
     override func viewWillAppear(_ animated: Bool) {

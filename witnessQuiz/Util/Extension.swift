@@ -74,7 +74,38 @@ extension Array {
         return Array(copy.suffix(n))
     }
 }
-
+extension UIButton {
+    func pulsate() {
+        let pulse = CASpringAnimation(keyPath: "transform.scale")
+        pulse.duration = 0.6
+        pulse.fromValue = 0.95
+        pulse.toValue = 1.0
+        pulse.autoreverses = true
+        pulse.repeatCount = 2
+        pulse.initialVelocity = 0.5
+        pulse.damping = 1.0
+        
+        layer.add(pulse, forKey: nil)
+    }
+    
+    func shake() {
+        let shake = CASpringAnimation(keyPath: "position")
+        
+        shake.duration = 0.1
+        shake.autoreverses = true
+        shake.repeatCount = 2
+        
+        let fromPoint = CGPoint(x: center.x - 5, y: center.y)
+        let fromValue = NSValue(cgPoint: fromPoint)
+        shake.fromValue = fromValue
+        
+        let toPoint = CGPoint(x: center.x + 5, y: center.y)
+        let toValue = NSValue(cgPoint: toPoint)
+        shake.toValue = toValue
+        
+        layer.add(shake, forKey: nil)
+    }
+}
 func addShadowButton(button: UIButton) {
     button.layer.shadowColor = UIColor.lightGray.cgColor
     button.layer.shadowRadius = 3

@@ -65,15 +65,9 @@ class ResultVC: UIViewController {
         doneAnimation.loopMode = .loop
         doneAnimation.play()
         
-        //Restart Button UI
-        restartButton.layer.shadowColor = UIColor.gray.cgColor
-        restartButton.layer.shadowRadius = 5
-        restartButton.layer.shadowOpacity = 4
-        restartButton.layer.shadowOffset = CGSize(width: 0, height: 0)
-        homeButton.layer.shadowColor = UIColor.gray.cgColor
-        homeButton.layer.shadowRadius = 5
-        homeButton.layer.shadowOpacity = 4
-        homeButton.layer.shadowOffset = CGSize(width: 0, height: 0)
+        //Adding shadow to buttons
+        addShadowButton(button: restartButton)
+        addShadowButton(button: homeButton)
     }
     
 }

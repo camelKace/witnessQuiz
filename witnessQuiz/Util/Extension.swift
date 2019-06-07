@@ -74,3 +74,10 @@ extension Array {
         return Array(copy.suffix(n))
     }
 }
+
+func addShadowButton(button: UIButton) {
+    button.layer.shadowColor = UIColor.lightGray.cgColor
+    button.layer.shadowRadius = 3
+    button.layer.shadowOpacity = 4
+    button.layer.shadowOffset = CGSize(width: 0, height: 0)
+}

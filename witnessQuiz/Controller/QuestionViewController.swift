@@ -14,10 +14,9 @@ var isRunning = false
 var counter = 0
 
 class QuestionViewController: UIViewController {
+    
     @IBOutlet var thumbsUpView: AnimationView!
     @IBOutlet var thumbsDownView: AnimationView!
-    @IBOutlet var nextButton: UIButton!
-    
     @IBOutlet weak var questionCounter: UILabel!
     @IBOutlet weak var progressView: UIView!
     @IBOutlet weak var scoreLabel: UILabel!
@@ -26,6 +25,7 @@ class QuestionViewController: UIViewController {
     @IBOutlet weak var choseB: UIButton!
     @IBOutlet weak var choseC: UIButton!
     @IBOutlet weak var choseD: UIButton!
+    @IBOutlet var nextButton: UIButton!
     var questionBank: [Question]?
     var questionNumber: Int = 0
     var score: Int = 0
@@ -42,7 +42,6 @@ class QuestionViewController: UIViewController {
         super.viewWillAppear(animated)
         restartQuiz()
         setUpTimer()
-        addShadow()
     }
     
     func setUpTimer() {
@@ -187,31 +186,14 @@ class QuestionViewController: UIViewController {
         //Hide Animation Views
         thumbsDownView.alpha = 0
         thumbsUpView.alpha = 0
+        
+        addShadowButton(button: choseA)
+        addShadowButton(button: choseB)
+        addShadowButton(button: choseC)
+        addShadowButton(button: choseD)
+        addShadowButton(button: nextButton)
     }
-    
-    func addShadow() {
-        choseA.layer.shadowColor = UIColor.gray.cgColor
-        choseA.layer.shadowRadius = 5
-        choseA.layer.shadowOpacity = 4
-        choseA.layer.shadowOffset = CGSize(width: 0, height: 0)
-        choseB.layer.shadowColor = UIColor.gray.cgColor
-        choseB.layer.shadowRadius = 5
-        choseB.layer.shadowOpacity = 4
-        choseB.layer.shadowOffset = CGSize(width: 0, height: 0)
-        choseC.layer.shadowColor = UIColor.gray.cgColor
-        choseC.layer.shadowRadius = 5
-        choseC.layer.shadowOpacity = 4
-        choseC.layer.shadowOffset = CGSize(width: 0, height: 0)
-        choseD.layer.shadowColor = UIColor.gray.cgColor
-        choseD.layer.shadowRadius = 5
-        choseD.layer.shadowOpacity = 4
-        choseD.layer.shadowOffset = CGSize(width: 0, height: 0)
-        nextButton.layer.shadowColor = UIColor.gray.cgColor
-        nextButton.layer.shadowRadius = 5
-        nextButton.layer.shadowOpacity = 4
-        nextButton.layer.shadowOffset = CGSize(width: 0, height: 0)
-    }
-    
+
     func restartQuiz() {
         score = 0
         questionNumber = 0

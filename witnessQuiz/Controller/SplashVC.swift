@@ -10,6 +10,7 @@ import UIKit
 import MessageUI
 
 class SplashVC: UIViewController {
+    
     var questions: [Question]?
     @IBOutlet var easyButton: UIButton!
     @IBOutlet var mediumButton: UIButton!
@@ -17,7 +18,6 @@ class SplashVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        addShadow()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -48,21 +48,6 @@ class SplashVC: UIViewController {
         default:
          setQuestionBank(q: EasyQuestionBank.init().shuffled)
         }
-    }
-    
-    func addShadow() {
-        easyButton.layer.shadowColor = UIColor.gray.cgColor
-        easyButton.layer.shadowRadius = 5
-        easyButton.layer.shadowOpacity = 4
-        easyButton.layer.shadowOffset = CGSize(width: 0, height: 0)
-        mediumButton.layer.shadowColor = UIColor.gray.cgColor
-        mediumButton.layer.shadowRadius = 5
-        mediumButton.layer.shadowOpacity = 4
-        mediumButton.layer.shadowOffset = CGSize(width: 0, height: 0)
-        hardButton.layer.shadowColor = UIColor.gray.cgColor
-        hardButton.layer.shadowRadius = 5
-        hardButton.layer.shadowOpacity = 4
-        hardButton.layer.shadowOffset = CGSize(width: 0, height: 0)
     }
 
     @IBAction func suggestQuestionPressed(_ sender: UIButton) {
@@ -104,18 +89,22 @@ extension SplashVC: MFMailComposeViewControllerDelegate {
         switch result {
         case .cancelled:
             print("Cancelled")
+            controller.dismiss(animated: true)
         case .failed:
             let alert = UIAlertController(title: "Could not send email", message: "Your device was not able to send email please try again.", preferredStyle: UIAlertController.Style.alert)
             alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
             self.present(alert, animated: true, completion: nil)
+            controller.dismiss(animated: true)
         case .sent:
             let alert = UIAlertController(title: "Email Sent", message: "Your email has been sent, thank you for submiting a question.", preferredStyle: UIAlertController.Style.alert)
             alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
             self.present(alert, animated: true, completion: nil)
+            controller.dismiss(animated: true)
         case .saved:
             let alert = UIAlertController(title: "Email Saved", message: "Your email has been saved.", preferredStyle: UIAlertController.Style.alert)
             alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
             self.present(alert, animated: true, completion: nil)
+            controller.dismiss(animated: true)
         }
     }
     
@@ -124,7 +113,7 @@ extension SplashVC: MFMailComposeViewControllerDelegate {
         mailComposerVC.mailComposeDelegate = self
         mailComposerVC.setToRecipients(["witnessQuizApp@gmail.com"])
         mailComposerVC.setSubject("Question Suggestion")
-        mailComposerVC.setMessageBody("Question: \nBacking:", isHTML: false)
+        mailComposerVC.setMessageBody("Question: \nAnswer: \nBacking:", isHTML: false)
         
         return mailComposerVC
     }

@@ -19,10 +19,30 @@ class ResultVC: UIViewController {
     @IBOutlet var AVView: AnimationView!
     var scre:Int = 0
     var totalQuestions: Int = 0
+    let animationDuration: Double = 0.8
+    let animationStartDate = Date()
+    let startValue = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        
+        let displayLink = CADisplayLink(target: self, selector: #selector(handleUpdate))
+        displayLink.add(to: .main, forMode: .default)
+    }
+    
+    @objc func handleUpdate() {
+        let now = Date()
+        let elapedTime = now.timeIntervalSince(animationStartDate)
+        
+        if elapedTime > animationDuration {
+            resultLabel.text = "\(scre) / \(totalQuestions)"
+        } else {
+            let percentage = elapedTime / animationDuration
+            let value = Double(startValue) + percentage * Double(scre - startValue)
+            resultLabel.text = "\(Int(value)) / \(totalQuestions)"
+            resultLabel.pulsate()
+        }
     }
     
     @IBAction func homeButtonPressed(_ sender: Any) {
@@ -36,6 +56,8 @@ class ResultVC: UIViewController {
             navigationController?.popToViewController(destinationViewController, animated: true)
         }
     }
+    
+    
     
     func setupUI() {
         // Set up Mins and Secs Label
@@ -54,9 +76,7 @@ class ResultVC: UIViewController {
         } else {
             feedbackLabel.text = "Great job on the quiz, keep it up!"
         }
-        
-        resultLabel.text = "\(scre) / \(totalQuestions)"
-        
+    
         // Done animation
         let doneAnimation =  AnimationView(name: "676-done")
         AVView.contentMode = .scaleAspectFit

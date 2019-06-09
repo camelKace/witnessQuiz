@@ -60,6 +60,7 @@ class QuestionViewController: UIViewController {
         switch selectedAnswer {
         case 1:
             choseA.backgroundColor = greenColor
+            choseA.flash()
             choseB.backgroundColor = red
             choseC.backgroundColor = red
             choseD.backgroundColor = red
@@ -67,12 +68,9 @@ class QuestionViewController: UIViewController {
             choseC.isEnabled = false
             choseD.isEnabled = false
             choseA.isEnabled = false
-            choseA.pulsate()
-            choseB.shake()
-            choseC.shake()
-            choseD.shake()
         case 2:
             choseB.backgroundColor = greenColor
+            choseB.flash()
             choseA.backgroundColor = red
             choseC.backgroundColor = red
             choseD.backgroundColor = red
@@ -80,12 +78,12 @@ class QuestionViewController: UIViewController {
             choseC.isEnabled = false
             choseD.isEnabled = false
             choseB.isEnabled = false
-            choseB.pulsate()
-            choseA.shake()
-            choseC.shake()
-            choseD.shake()
+//            choseA.shake()
+//            choseC.shake()
+//            choseD.shake()
         case 3:
             choseC.backgroundColor = greenColor
+            choseC.flash()
             choseB.backgroundColor = red
             choseA.backgroundColor = red
             choseD.backgroundColor = red
@@ -93,12 +91,12 @@ class QuestionViewController: UIViewController {
             choseA.isEnabled = false
             choseD.isEnabled = false
             choseC.isEnabled = false
-            choseC.pulsate()
-            choseB.shake()
-            choseA.shake()
-            choseD.shake()
+//            choseB.shake()
+//            choseA.shake()
+//            choseD.shake()
         case 4:
             choseD.backgroundColor = greenColor
+            choseD.flash()
             choseB.backgroundColor = red
             choseC.backgroundColor = red
             choseA.backgroundColor = red
@@ -106,10 +104,9 @@ class QuestionViewController: UIViewController {
             choseC.isEnabled = false
             choseA.isEnabled = false
             choseD.isEnabled = false
-            choseD.pulsate()
-            choseB.shake()
-            choseC.shake()
-            choseA.shake()
+//            choseB.shake()
+//            choseC.shake()
+//            choseA.shake()
         default:
             print("Unknown")
         }
@@ -138,6 +135,7 @@ class QuestionViewController: UIViewController {
         questionNumber += 1
         updateQuestion()
         sendToResults()
+    
     }
     
     func sendToResults() {

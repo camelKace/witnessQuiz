@@ -589,11 +589,12 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = BD7Q5P2FV9;
 				INFOPLIST_FILE = "$(SRCROOT)/witnessQuiz/Project Files/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.camelKace.JWitnessQuiz1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.camelKace.spirituallySharp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -608,11 +609,12 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = BD7Q5P2FV9;
 				INFOPLIST_FILE = "$(SRCROOT)/witnessQuiz/Project Files/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.camelKace.JWitnessQuiz1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.camelKace.spirituallySharp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;

@@ -10,7 +10,6 @@ import UIKit
 import Lottie
 
 class ResultVC: UIViewController {
-
     @IBOutlet var homeButton: UIButton!
     @IBOutlet var restartButton: UIButton!
     @IBOutlet var resultLabel: UILabel!

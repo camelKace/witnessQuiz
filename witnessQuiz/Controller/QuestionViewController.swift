@@ -14,17 +14,16 @@ var isRunning = false
 var counter = 0
 
 class QuestionViewController: UIViewController {
-    
     @IBOutlet var thumbsUpView: AnimationView!
     @IBOutlet var thumbsDownView: AnimationView!
     @IBOutlet weak var questionCounter: UILabel!
     @IBOutlet weak var progressView: UIView!
     @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet weak var questionLabel: UILabel!
-    @IBOutlet weak var choseA: UIButton!
-    @IBOutlet weak var choseB: UIButton!
-    @IBOutlet weak var choseC: UIButton!
-    @IBOutlet weak var choseD: UIButton!
+    @IBOutlet var choiceA: UIButton!
+    @IBOutlet var choiceB: UIButton!
+    @IBOutlet var choiceC: UIButton!
+    @IBOutlet var choiceD: UIButton!
     @IBOutlet var nextButton: UIButton!
     var questionBank: [Question]?
     var questionNumber: Int = 0
@@ -59,54 +58,49 @@ class QuestionViewController: UIViewController {
         settingUpAnimations(sender: sender)
         switch selectedAnswer {
         case 1:
-            choseA.backgroundColor = greenColor
-            choseA.flash()
-            choseB.backgroundColor = red
-            choseC.backgroundColor = red
-            choseD.backgroundColor = red
-            choseB.isEnabled = false
-            choseC.isEnabled = false
-            choseD.isEnabled = false
-            choseA.isEnabled = false
+            choiceA.backgroundColor = greenColor
+            choiceA.flash()
+            choiceB.backgroundColor = red
+            choiceC.backgroundColor = red
+            choiceD.backgroundColor = red
+            choiceB.isEnabled = false
+            choiceC.isEnabled = false
+            choiceD.isEnabled = false
+            choiceA.isEnabled = false
+            nextButton.pulsate()
         case 2:
-            choseB.backgroundColor = greenColor
-            choseB.flash()
-            choseA.backgroundColor = red
-            choseC.backgroundColor = red
-            choseD.backgroundColor = red
-            choseA.isEnabled = false
-            choseC.isEnabled = false
-            choseD.isEnabled = false
-            choseB.isEnabled = false
-//            choseA.shake()
-//            choseC.shake()
-//            choseD.shake()
+            choiceB.backgroundColor = greenColor
+            choiceB.flash()
+            choiceA.backgroundColor = red
+            choiceC.backgroundColor = red
+            choiceD.backgroundColor = red
+            choiceA.isEnabled = false
+            choiceC.isEnabled = false
+            choiceD.isEnabled = false
+            choiceB.isEnabled = false
+            nextButton.pulsate()
         case 3:
-            choseC.backgroundColor = greenColor
-            choseC.flash()
-            choseB.backgroundColor = red
-            choseA.backgroundColor = red
-            choseD.backgroundColor = red
-            choseB.isEnabled = false
-            choseA.isEnabled = false
-            choseD.isEnabled = false
-            choseC.isEnabled = false
-//            choseB.shake()
-//            choseA.shake()
-//            choseD.shake()
+            choiceC.backgroundColor = greenColor
+            choiceC.flash()
+            choiceB.backgroundColor = red
+            choiceA.backgroundColor = red
+            choiceD.backgroundColor = red
+            choiceB.isEnabled = false
+            choiceA.isEnabled = false
+            choiceD.isEnabled = false
+            choiceC.isEnabled = false
+            nextButton.pulsate()
         case 4:
-            choseD.backgroundColor = greenColor
-            choseD.flash()
-            choseB.backgroundColor = red
-            choseC.backgroundColor = red
-            choseA.backgroundColor = red
-            choseB.isEnabled = false
-            choseC.isEnabled = false
-            choseA.isEnabled = false
-            choseD.isEnabled = false
-//            choseB.shake()
-//            choseC.shake()
-//            choseA.shake()
+            choiceD.backgroundColor = greenColor
+            choiceD.flash()
+            choiceB.backgroundColor = red
+            choiceC.backgroundColor = red
+            choiceA.backgroundColor = red
+            choiceB.isEnabled = false
+            choiceC.isEnabled = false
+            choiceA.isEnabled = false
+            choiceD.isEnabled = false
+            nextButton.pulsate()
         default:
             print("Unknown")
         }
@@ -135,7 +129,6 @@ class QuestionViewController: UIViewController {
         questionNumber += 1
         updateQuestion()
         sendToResults()
-    
     }
     
     func sendToResults() {
@@ -156,19 +149,19 @@ class QuestionViewController: UIViewController {
     func updateQuestion() {
         func switchQuestionBank(arrayOfQuestions: [Question]) {
             questionLabel.text = arrayOfQuestions[questionNumber].question
-            choseA.setTitle(arrayOfQuestions[questionNumber].optionA, for: .normal)
-            choseB.setTitle(arrayOfQuestions[questionNumber].optionB, for: .normal)
-            choseC.setTitle(arrayOfQuestions[questionNumber].optionC, for: .normal)
-            choseD.setTitle(arrayOfQuestions[questionNumber].optionD, for: .normal)
+            choiceA.setTitle(arrayOfQuestions[questionNumber].optionA, for: .normal)
+            choiceB.setTitle(arrayOfQuestions[questionNumber].optionB, for: .normal)
+            choiceC.setTitle(arrayOfQuestions[questionNumber].optionC, for: .normal)
+            choiceD.setTitle(arrayOfQuestions[questionNumber].optionD, for: .normal)
             selectedAnswer = arrayOfQuestions[questionNumber].correctAnswer
-            choseA.backgroundColor = buttonColor
-            choseB.backgroundColor = buttonColor
-            choseC.backgroundColor = buttonColor
-            choseD.backgroundColor = buttonColor
-            choseA.isEnabled = true
-            choseB.isEnabled = true
-            choseC.isEnabled = true
-            choseD.isEnabled = true
+            choiceA.backgroundColor = buttonColor
+            choiceB.backgroundColor = buttonColor
+            choiceC.backgroundColor = buttonColor
+            choiceD.backgroundColor = buttonColor
+            choiceA.isEnabled = true
+            choiceB.isEnabled = true
+            choiceC.isEnabled = true
+            choiceD.isEnabled = true
         }
         
         if questionNumber <= 10 - 1{
@@ -202,10 +195,16 @@ class QuestionViewController: UIViewController {
         thumbsDownView.alpha = 0
         thumbsUpView.alpha = 0
         
-        addShadowButton(button: choseA)
-        addShadowButton(button: choseB)
-        addShadowButton(button: choseC)
-        addShadowButton(button: choseD)
+        nextButton.layer.removeAllAnimations()
+        choiceA.layer.removeAllAnimations()
+        choiceB.layer.removeAllAnimations()
+        choiceC.layer.removeAllAnimations()
+        choiceD.layer.removeAllAnimations()
+        
+        addShadowButton(button: choiceA)
+        addShadowButton(button: choiceB)
+        addShadowButton(button: choiceC)
+        addShadowButton(button: choiceD)
         addShadowButton(button: nextButton)
     }
 

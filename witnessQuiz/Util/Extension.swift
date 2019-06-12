@@ -11,7 +11,7 @@ import UIKit
 
 let greenColor = UIColor(hexString: "7EB47C")
 let red = UIColor(hexString: "D55E62")
-let buttonColor = UIColor(hexString: "0D9EDF")
+let buttonColor = UIColor(hexString: "0B8AC5")
 
 extension UIColor {
     convenience init(red: Int, green: Int, blue: Int) {
@@ -77,7 +77,7 @@ extension Array {
 extension UILabel {
     func pulsate() {
         let pulse = CASpringAnimation(keyPath: "transform.scale")
-        pulse.duration = 0.3
+        pulse.duration = 0.4
         pulse.fromValue = 1
         pulse.toValue = 1.1
         pulse.autoreverses = true
@@ -91,11 +91,11 @@ extension UILabel {
 extension UIButton {
     func pulsate() {
         let pulse = CASpringAnimation(keyPath: "transform.scale")
-        pulse.duration = 0.12
-        pulse.fromValue = 0.99
+        pulse.duration = 0.4
+        pulse.fromValue = 0.98
         pulse.toValue = 1.0
         pulse.autoreverses = true
-        pulse.repeatCount = 2
+        pulse.repeatCount = .infinity
         pulse.initialVelocity = 0.5
         pulse.damping = 1.0
         
@@ -108,7 +108,7 @@ extension UIButton {
         flash.toValue = 0.1
         flash.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
         flash.autoreverses = true
-        flash.repeatCount = 1
+        flash.repeatCount = 2
         
         layer.add(flash, forKey: nil)
     }

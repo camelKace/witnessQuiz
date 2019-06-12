@@ -10,7 +10,6 @@ import UIKit
 import MessageUI
 
 class SplashVC: UIViewController {
-    
     var questions: [Question]?
     @IBOutlet var easyButton: UIButton!
     @IBOutlet var mediumButton: UIButton!
@@ -25,6 +24,9 @@ class SplashVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         questions = [Question]()
+        easyButton.pulsate()
+        mediumButton.pulsate()
+        hardButton.pulsate()
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         self.navigationController?.hideShadow()
         navigationController?.navigationBar.barTintColor = UIColor.white
@@ -70,8 +72,6 @@ class SplashVC: UIViewController {
         alert.addAction(okAction)
         alert.addAction(cancelAction)
         self.present(alert, animated: true, completion: nil)
-        
-        
     }
     
     func showMailError() {
@@ -91,7 +91,6 @@ extension SplashVC: MFMailComposeViewControllerDelegate {
         
         switch result {
         case .cancelled:
-            print("Cancelled")
             controller.dismiss(animated: true)
         case .failed:
             let alert = UIAlertController(title: "Could not send email", message: "Your device was not able to send email please try again.", preferredStyle: UIAlertController.Style.alert)
@@ -114,7 +113,7 @@ extension SplashVC: MFMailComposeViewControllerDelegate {
     func configureMailController () -> MFMailComposeViewController {
         let mailComposerVC = MFMailComposeViewController()
         mailComposerVC.mailComposeDelegate = self
-        mailComposerVC.setToRecipients(["witnessQuizApp@gmail.com"])
+        mailComposerVC.setToRecipients(["spirituallySharpApp@gmail.com"])
         mailComposerVC.setSubject("Question Suggestion")
         mailComposerVC.setMessageBody("Question: \nAnswer: \nBacking:", isHTML: false)
         

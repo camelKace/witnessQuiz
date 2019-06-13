@@ -286,26 +286,6 @@
                                     <action selector="levelButtonPressed:" destination="IW1-fX-7mL" eventType="touchUpInside" id="Mzf-Ew-Ha4"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" tag="2" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X6L-yN-cEO">
-                                <rect key="frame" x="20" y="401" width="334" height="48"/>
-                                <color key="backgroundColor" red="0.89289620225293653" green="0.80700341644572593" blue="0.42224833656775052" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="48" id="KFX-RH-sSK"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                <state key="normal" title="MEDIUM">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="5"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.maskToBounds" value="YES"/>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="levelButtonPressed:" destination="IW1-fX-7mL" eventType="touchUpInside" id="EKi-aa-zfH"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" tag="3" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VmR-gq-R6d">
                                 <rect key="frame" x="20" y="472" width="334" height="50"/>
                                 <color key="backgroundColor" red="0.83529411764705885" green="0.36862745098039218" blue="0.38431372549019605" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -335,7 +315,7 @@
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="SpirituallySharp" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6hu-Rs-pfr">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="SpirituallyFit" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6hu-Rs-pfr">
                                 <rect key="frame" x="87" y="0.0" width="204" height="59"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="59" id="Xx9-la-RSf"/>
@@ -344,6 +324,26 @@
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" tag="2" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X6L-yN-cEO">
+                                <rect key="frame" x="20" y="404" width="334" height="48"/>
+                                <color key="backgroundColor" red="0.89289620225293653" green="0.80700341644572593" blue="0.42224833656775052" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="KFX-RH-sSK"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                <state key="normal" title="MEDIUM">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.maskToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="levelButtonPressed:" destination="IW1-fX-7mL" eventType="touchUpInside" id="EKi-aa-zfH"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -358,10 +358,10 @@
                             <constraint firstItem="X6L-yN-cEO" firstAttribute="trailing" secondItem="VmR-gq-R6d" secondAttribute="trailing" id="F3M-UA-Cpn"/>
                             <constraint firstItem="PPy-Ug-oD4" firstAttribute="trailing" secondItem="4hr-0b-jbz" secondAttribute="trailing" id="GJb-cw-egs"/>
                             <constraint firstItem="PPy-Ug-oD4" firstAttribute="leading" secondItem="5xA-Wn-Clf" secondAttribute="leading" constant="20" id="GVb-DL-fpg"/>
-                            <constraint firstItem="VmR-gq-R6d" firstAttribute="top" secondItem="X6L-yN-cEO" secondAttribute="bottom" constant="23" id="L9n-6S-Qhv"/>
+                            <constraint firstItem="VmR-gq-R6d" firstAttribute="top" secondItem="X6L-yN-cEO" secondAttribute="bottom" constant="20" id="L9n-6S-Qhv"/>
                             <constraint firstItem="PPy-Ug-oD4" firstAttribute="centerX" secondItem="dkQ-3s-ZTd" secondAttribute="centerX" id="Rv9-H5-Xhu"/>
                             <constraint firstAttribute="bottom" secondItem="dC9-rq-env" secondAttribute="bottom" constant="20" symbolic="YES" id="SZl-7G-qWV"/>
-                            <constraint firstItem="X6L-yN-cEO" firstAttribute="top" secondItem="4hr-0b-jbz" secondAttribute="bottom" constant="19" id="gHj-eu-B7E"/>
+                            <constraint firstItem="X6L-yN-cEO" firstAttribute="top" secondItem="4hr-0b-jbz" secondAttribute="bottom" constant="22" id="gHj-eu-B7E"/>
                             <constraint firstItem="6hu-Rs-pfr" firstAttribute="top" secondItem="5xA-Wn-Clf" secondAttribute="top" id="ii8-e8-mbv"/>
                             <constraint firstItem="bzN-NE-PjH" firstAttribute="top" secondItem="PPy-Ug-oD4" secondAttribute="bottom" constant="28" id="oXp-7R-Q9L"/>
                             <constraint firstItem="dC9-rq-env" firstAttribute="top" secondItem="VmR-gq-R6d" secondAttribute="bottom" constant="20" id="qGG-ho-VO7"/>

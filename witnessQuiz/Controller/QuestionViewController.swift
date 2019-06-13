@@ -29,6 +29,7 @@ class QuestionViewController: UIViewController {
     var questionNumber: Int = 0
     var score: Int = 0
     var selectedAnswer: Int = 0
+    var alertText: String = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,7 +54,9 @@ class QuestionViewController: UIViewController {
     @objc func updateTimer() {
     counter += 1
     }
-    
+    func alertQuestionAnswer() {
+        
+    }
     @IBAction func buttonPressed(_ sender: UIButton) {
         settingUpAnimations(sender: sender)
         switch selectedAnswer {
@@ -68,6 +71,7 @@ class QuestionViewController: UIViewController {
             choiceD.isEnabled = false
             choiceA.isEnabled = false
             nextButton.pulsate()
+            alertQuestionAnswer()
         case 2:
             choiceB.backgroundColor = greenColor
             choiceB.flash()
@@ -162,6 +166,8 @@ class QuestionViewController: UIViewController {
             choiceB.isEnabled = true
             choiceC.isEnabled = true
             choiceD.isEnabled = true
+            //TODO make backing alerts
+  //          alertText = arrayOfQuestions[questionNumber].
         }
         
         if questionNumber <= 10 - 1{

@@ -113,7 +113,7 @@ extension SplashVC: MFMailComposeViewControllerDelegate {
     func configureMailController () -> MFMailComposeViewController {
         let mailComposerVC = MFMailComposeViewController()
         mailComposerVC.mailComposeDelegate = self
-        mailComposerVC.setToRecipients(["spirituallySharpApp@gmail.com"])
+        mailComposerVC.setToRecipients(["SpirituallyFitApp@gmail.com"])
         mailComposerVC.setSubject("Question Suggestion")
         mailComposerVC.setMessageBody("Question: \nAnswer: \nBacking:", isHTML: false)
         

@@ -15,7 +15,7 @@ class EasyQuestionBank {
     init() {
         list.append(Question(questionText: "Where was Jesus Born?", choiceA: "Bethlehem", choiceB: "Israel", choiceC: "Jerusalem", choiceD: "Egypt", answer: 1))
         list.append(Question(questionText: "What did David use to kill Goliath?", choiceA: "Stick", choiceB: "Sling and rock", choiceC: "Sword", choiceD: "Bow and arrow", answer: 2))
-        list.append(Question(questionText: "Which of the following are not one of the 12 disciples?", choiceA: "Matthew", choiceB: "Paul", choiceC: "Judas", choiceD: "Isaiah", answer: 4))
+        list.append(Question(questionText: "Which of the following are not one of the 12 disciples?", choiceA: "Matthew", choiceB: "Andrew", choiceC: "Judas", choiceD: "Isaiah", answer: 4))
         list.append(Question(questionText: "Which one of these match this Bible text? He will wipe out every tear from their eyes, and death will be no more...", choiceA: "Genesis 4:8", choiceB: "Psalms 21:8", choiceC: "1 Peter 5:5", choiceD: "Revelation 21:4", answer: 4))
         list.append(Question(questionText: "What Bible character was eaten by a fish?", choiceA: "Noah", choiceB: "Jonah", choiceC: "Daniel", choiceD: "Job", answer: 2))
         list.append(Question(questionText: "Lots wife turned into what when she looked back at the city of Sodom and Gomorrah?", choiceA: "Sand", choiceB: "Pillar of Salt", choiceC: "Dust", choiceD: "Ice", answer: 2))
@@ -60,7 +60,7 @@ class EasyQuestionBank {
             list.append(Question(questionText: "Which one of these match this Bible text? And this good news of the Kingdom will be preached in all the inhabited earth... ", choiceA: "Matthew 24:14", choiceB: "Exodus 39:2", choiceC: "1 Chronicles 8:10", choiceD: "Zechariah 8:2", answer: 1))
             list.append(Question(questionText: "At what age was Jesus baptized?", choiceA: "24", choiceB: "12", choiceC: "30", choiceD: "19", answer: 3))
             list.append(Question(questionText: "How many people did Jesus feed with 7 loaves of bread and a few small fish?", choiceA: "1000", choiceB: "200", choiceC: "4000", choiceD: "5000", answer: 3))
-            list.append(Question(questionText: "Joseph was thrown into prison because of who’s wife?", choiceA: "Pharaoh's", choiceB: "Potiphar’s", choiceC: "Nim'rod's", choiceD: "None of the above", answer: 2))
+            list.append(Question(questionText: "Joseph was thrown into prison because of whose wife?", choiceA: "Pharaoh's", choiceB: "Potiphar’s", choiceC: "Nim'rod's", choiceD: "None of the above", answer: 2))
             list.append(Question(questionText: "How old was Noah when the Deluge occurred?", choiceA: "250 years old", choiceB: "600 years old", choiceC: "500 years old", choiceD: "80 years old", answer: 2))
             list.append(Question(questionText: "How many books are in the Hebrew Scriptures?", choiceA: "5", choiceB: "17", choiceC: "39", choiceD: "20", answer: 3))
             list.append(Question(questionText: "How many books are in the Greek scriptures?", choiceA: "27", choiceB: "40", choiceC: "15", choiceD: "5", answer: 1))

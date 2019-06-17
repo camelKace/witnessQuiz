@@ -49,7 +49,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j4A-UK-wyx">
-                                <rect key="frame" x="113" y="586" width="148" height="66"/>
+                                <rect key="frame" x="113" y="568" width="148" height="84"/>
                                 <color key="backgroundColor" red="0.0" green="0.66274509800000003" blue="0.84705882349999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                 <state key="normal" title="NEXT">
@@ -66,7 +66,7 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="sJ9-Bv-Q8f">
-                                <rect key="frame" x="0.0" y="74" width="375" height="491"/>
+                                <rect key="frame" x="0.0" y="74" width="375" height="473"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pSk-4L-v3G" userLabel="Question View">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="298"/>
@@ -88,7 +88,6 @@
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Where was Jesus Born?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E6w-By-L6a" userLabel="Question">
                                                 <rect key="frame" x="16" y="247" width="345" height="43"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
@@ -112,10 +111,10 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5M5-TP-CqT" userLabel="Button View">
-                                        <rect key="frame" x="0.0" y="302" width="375" height="189"/>
+                                        <rect key="frame" x="0.0" y="302" width="375" height="171"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="6ln-Zx-4aZ">
-                                                <rect key="frame" x="10" y="7" width="355" height="177"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="6ln-Zx-4aZ">
+                                                <rect key="frame" x="10" y="7" width="355" height="159"/>
                                                 <subviews>
                                                     <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I1l-Yv-l93">
                                                         <rect key="frame" x="0.0" y="0.0" width="355" height="33"/>
@@ -135,7 +134,7 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cu6-p9-faq">
-                                                        <rect key="frame" x="0.0" y="48" width="355" height="33"/>
+                                                        <rect key="frame" x="0.0" y="42" width="355" height="33"/>
                                                         <color key="backgroundColor" red="0.043137254899999998" green="0.54117647059999996" blue="0.7725490196" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                         <state key="normal" title="B">
@@ -152,7 +151,7 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mof-J3-b1A">
-                                                        <rect key="frame" x="0.0" y="96" width="355" height="33"/>
+                                                        <rect key="frame" x="0.0" y="84" width="355" height="33"/>
                                                         <color key="backgroundColor" red="0.043137254899999998" green="0.54117647059999996" blue="0.7725490196" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                         <state key="normal" title="C">
@@ -169,7 +168,7 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CyJ-G2-7mf">
-                                                        <rect key="frame" x="0.0" y="144" width="355" height="33"/>
+                                                        <rect key="frame" x="0.0" y="126" width="355" height="33"/>
                                                         <color key="backgroundColor" red="0.043137254899999998" green="0.54117647059999996" blue="0.7725490196" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                         <state key="normal" title="D">

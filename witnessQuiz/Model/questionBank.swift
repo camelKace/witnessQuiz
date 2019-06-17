@@ -24,7 +24,8 @@ class EasyQuestionBank {
         list.append(Question(questionText: "Who is the Bible character Jehovah spoke to through a bush on fire?", choiceA: "Timothy", choiceB: "Daniel", choiceC: "Moses", choiceD: "Joseph", answer: 3))
         list.append(Question(questionText: "Who was the strongest man who ever lived on earth?", choiceA: "Jesus", choiceB: "Micah", choiceC: "Samson", choiceD: "David", answer: 3))
         list.append(Question(questionText: "Who was the man that baptized Jesus?", choiceA: "Judas", choiceB: "John", choiceC: "Paul", choiceD: "Joseph", answer: 2))
-        list.append(Question(questionText: "Who was so angry and jealous that caused him to kill his own brother?", choiceA: "Cain", choiceB: "Judah", choiceC: "Simeon", choiceD: "Reuben", answer: 1))
+        list.append(Question(questionText: "Who was so angry and jealous it that caused him to kill his own brother?", choiceA: "Cain", choiceB: "Judah", choiceC: "Simeon", choiceD: "Reuben", answer: 1))
+        list.append(Question(questionText: "How many trees had meaning in the Garden of Eden?", choiceA: "1", choiceB: "2", choiceC: "3", choiceD: "4", answer: 2))
         
         shuffled = list[randomPick: 10]
     }
@@ -45,6 +46,10 @@ class EasyQuestionBank {
             list.append(Question(questionText: "The name of Jacob’s twin brother was?", choiceA: "E’sau", choiceB: "Benjamin", choiceC: "Issac", choiceD: "Joseph", answer: 1))
             list.append(Question(questionText: "Which one of these match this Bible text? May people know that you, whose name is Jehovah You alone are the Most High over all the earth...", choiceA: "Job 13:8", choiceB: "Psalm 83:18", choiceC: "Esther 2:6", choiceD: "1 Samuel 9:27", answer: 2))
             list.append(Question(questionText: "What Bible book comes after Acts?", choiceA: "John", choiceB: "Matthew", choiceC: "Luke", choiceD: "Romans", answer: 4))
+            list.append(Question(questionText: "How many children did Job have?", choiceA: "7 sons, 3 daughters", choiceB: "7 Sons, 7 Daughters", choiceC: "2 sons, 4 daughters", choiceD: "12 sons, 4 daughters", answer: 1))
+            
+            //TODO: Fact Check
+            list.append(Question(questionText: "How many books of the Bible did Moses write?", choiceA: "10", choiceB: "15", choiceC: "2", choiceD: "5", answer: 4))
             
             shuffled = list[randomPick: 10]
         }
@@ -55,7 +60,14 @@ class EasyQuestionBank {
         var shuffled = [Question]()
         
         init() {
-            list.append(Question(questionText: "Which one of the following Apostles was a tax collector?", choiceA: "Matthew", choiceB: "Judas", choiceC: "Peter", choiceD: "None of the above", answer: 1))
+            //TODO: In Progress
+            list.append(Question(questionText: "What was special about Melchizedek?", choiceA: "He was a King and Priest at the same time", choiceB: "Was the oldest man to live", choiceC: "", choiceD: "", answer: 1))
+            list.append(Question(questionText: "Which King succeeded Herod when Joseph and Mary returned from Egypt?", choiceA: "", choiceB: "Archelaus", choiceC: "", choiceD: "", answer: 2))
+            //Google hebrew names
+            list.append(Question(questionText: "What was the Hebrew names of Shadrach, Meshach and Abednego?", choiceA: "", choiceB: "", choiceC: "Hananiah, Mishael & Azariah", choiceD: "", answer: 3))
+            
+            
+            list.append(Question(questionText: "Which one of the following disciples was a tax collector?", choiceA: "Matthew", choiceB: "Andrew", choiceC: "Peter", choiceD: "None of the above", answer: 1))
             list.append(Question(questionText: "What Bible book goes after Job?", choiceA: "Proverbs", choiceB: "Numbers", choiceC: "Psalm", choiceD: "Lamentations", answer: 3))
             list.append(Question(questionText: "Which one of these match this Bible text? And this good news of the Kingdom will be preached in all the inhabited earth... ", choiceA: "Matthew 24:14", choiceB: "Exodus 39:2", choiceC: "1 Chronicles 8:10", choiceD: "Zechariah 8:2", answer: 1))
             list.append(Question(questionText: "At what age was Jesus baptized?", choiceA: "24", choiceB: "12", choiceC: "30", choiceD: "19", answer: 3))

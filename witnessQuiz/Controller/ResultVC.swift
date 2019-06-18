@@ -70,10 +70,10 @@ class ResultVC: UIViewController {
         }
         
         //Update Feedback label depending on score
-        if scre <= 8 {
-            feedbackLabel.text = "Keep studying, try the quiz again!"
-        } else {
+        if scre >= 8 {
             feedbackLabel.text = "Great job on the quiz, keep it up!"
+        } else {
+            feedbackLabel.text = "Keep studying, try the quiz again!"
         }
     
         // Done animation

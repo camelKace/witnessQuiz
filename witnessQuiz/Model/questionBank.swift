@@ -36,6 +36,7 @@ class EasyQuestionBank {
         var shuffled = [Question]()
         
         init() {
+            list.append(Question(questionText: "How many stones did David have available to kill Goliath?", choiceA: "5", choiceB: "10", choiceC: "3", choiceD: "1", answer: 1))
             list.append(Question(questionText: "Which of the following was not one of the 10 Plagues?", choiceA: "Frogs out of the Nile River", choiceB: "Dust turned into gnats", choiceC: "Thunder and hail", choiceD: "Every second born son killed", answer: 4))
             list.append(Question(questionText: "Which one of the following are not one of God's fruitage of the Spirit?", choiceA: "Love", choiceB: "Patience", choiceC: "Meekness", choiceD: "Peace", answer: 3))
             list.append(Question(questionText: "Who was the King that wanted to build a tower so tall that it would reach into the heavens?", choiceA: "Hezekiah", choiceB: "Nim’rod", choiceC: "David", choiceD: "Pharoah", answer: 2))
@@ -67,6 +68,7 @@ class EasyQuestionBank {
             list.append(Question(questionText: "What was the Hebrew names of Shadrach, Meshach and Abednego?", choiceA: "", choiceB: "", choiceC: "Hananiah, Mishael & Azariah", choiceD: "", answer: 3))
             
             
+            list.append(Question(questionText: "How much did Goliah's Coat of Mail weigh?", choiceA: "About 4.5kg (10 lbs)", choiceB: "About 9kg (20 lbs)", choiceC: "About 15kg (33 lbs)", choiceD: "About 57kg (125 lbs)", answer: 4))
             list.append(Question(questionText: "Which one of the following disciples was a tax collector?", choiceA: "Matthew", choiceB: "Andrew", choiceC: "Peter", choiceD: "None of the above", answer: 1))
             list.append(Question(questionText: "What Bible book goes after Job?", choiceA: "Proverbs", choiceB: "Numbers", choiceC: "Psalm", choiceD: "Lamentations", answer: 3))
             list.append(Question(questionText: "Which one of these match this Bible text? And this good news of the Kingdom will be preached in all the inhabited earth... ", choiceA: "Matthew 24:14", choiceB: "Exodus 39:2", choiceC: "1 Chronicles 8:10", choiceD: "Zechariah 8:2", answer: 1))

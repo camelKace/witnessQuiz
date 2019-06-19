@@ -14,7 +14,21 @@ class HomeVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
     }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        addShadowButton(button: bibleTriviaButton)
+        addShadowButton(button: ministryButton)
+        addShadowButton(button: questionFactoryButton)
+        ministryButton.pulsate()
+        bibleTriviaButton.pulsate()
+    }
+
+    @IBOutlet var bibleTriviaButton: UIButton!
+    @IBOutlet var ministryButton: UIButton!
+    @IBOutlet var questionFactoryButton: UIButton!
+    
     
     @IBAction func triviaModePressed(_ sender: UIButton) {
         if let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Level") as? TriviaLevelVC {

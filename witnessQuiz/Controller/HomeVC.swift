@@ -1,61 +1,45 @@
 //
-//  SplashVC.swift
+//  HomeVC.swift
 //  witnessQuiz
 //
-//  Created by Kacey Jimenez on 6/6/19.
+//  Created by Kacey Jimenez on 6/18/19.
 //  Copyright © 2019 camelKace. All rights reserved.
 //
 
 import UIKit
 import MessageUI
 
-class SplashVC: UIViewController {
+class HomeVC: UIViewController {
     var questions: [Question]?
-    @IBOutlet var easyButton: UIButton!
-    @IBOutlet var mediumButton: UIButton!
-    @IBOutlet var hardButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        addShadowButton(button: easyButton)
-        addShadowButton(button: mediumButton)
-        addShadowButton(button: hardButton)
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        questions = [Question]()
-        easyButton.pulsate()
-        mediumButton.pulsate()
-        hardButton.pulsate()
-        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
-        self.navigationController?.hideShadow()
-        navigationController?.navigationBar.barTintColor = UIColor.white
-    }
-
-    func setQuestionBank(q: [Question]) {
-        if let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Question") as? QuestionViewController {
-            questions = q
-            viewController.questionBank = questions
+    @IBAction func triviaModePressed(_ sender: UIButton) {
+        if let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Level") as? TriviaLevelVC {
             if let navigator = navigationController {
                 navigator.pushViewController(viewController, animated: true)
             }
         }
     }
     
-    @IBAction func levelButtonPressed(_ sender: UIButton) {
-        switch sender.tag {
-        case 1:
-            setQuestionBank(q: EasyQuestionBank.init().shuffled)
-        case 2:
-            setQuestionBank(q: MediumQuestionBank.init().shuffled)
-        case 3:
-            setQuestionBank(q: HardQuestionBank.init().shuffled)
-        default:
-         setQuestionBank(q: EasyQuestionBank.init().shuffled)
+    @IBAction func serviceModePressed(_ sender: UIButton) {
+        setQuestionBank(q: ServiceTrivia.init().shuffled)
+    }
+    
+    func setQuestionBank(q: [Question]) {
+        if let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Question") as? QuestionViewController {
+            questions = q
+            viewController.questionBank = questions
+            viewController.isServiceView = true
+            if let navigator = navigationController {
+                navigator.pushViewController(viewController, animated: true)
+            }
         }
     }
-
-    @IBAction func suggestQuestionPressed(_ sender: UIButton) {
+    
+    @IBAction func questionFactoryPressed(_ sender: UIButton) {
         let alert = UIAlertController(title: "Sending Suggestions", message: "Emailing a question requires that you also send the answer to the question. The answer needs to have backing sent along with it from the scriptures or Society publications.", preferredStyle: UIAlertController.Style.alert)
         let okAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default) {
             UIAlertAction in
@@ -81,7 +65,7 @@ class SplashVC: UIViewController {
     }
     
 }
-extension SplashVC: MFMailComposeViewControllerDelegate {
+extension HomeVC: MFMailComposeViewControllerDelegate {
     func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
         
         if let _ = error {
@@ -120,3 +104,4 @@ extension SplashVC: MFMailComposeViewControllerDelegate {
         return mailComposerVC
     }
 }
+

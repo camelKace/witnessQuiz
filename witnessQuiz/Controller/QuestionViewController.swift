@@ -25,12 +25,15 @@ class QuestionViewController: UIViewController {
     @IBOutlet var choiceC: UIButton!
     @IBOutlet var choiceD: UIButton!
     @IBOutlet var nextButton: UIButton!
+    @IBOutlet var image: UIImageView!
     var questionBank: [Question]?
     var questionNumber: Int = 0
     var score: Int = 0
     var selectedAnswer: Int = 0
     var alertText: String = ""
-
+    var isServiceView: Bool?
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         restartQuiz()
@@ -43,6 +46,9 @@ class QuestionViewController: UIViewController {
         super.viewWillAppear(animated)
         restartQuiz()
         setUpTimer()
+        if isServiceView == true {
+            image.image = UIImage(named: "shadow")
+        }
     }
     
     func setUpTimer() {

@@ -45,8 +45,8 @@ class ResultVC: UIViewController {
     }
     
     @IBAction func homeButtonPressed(_ sender: Any) {
-        if let destinationViewController = navigationController?.viewControllers.filter({$0.classForCoder == SplashVC.self}).first {
-            navigationController?.popToViewController(destinationViewController, animated: true)
+        if let destinationViewController = navigationController?.viewControllers.filter({$0.classForCoder == HomeVC.self}).first {
+        navigationController?.popToViewController(destinationViewController, animated: true)
         }
     }
     

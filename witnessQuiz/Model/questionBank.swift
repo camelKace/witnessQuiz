@@ -82,5 +82,27 @@ class EasyQuestionBank {
             
             shuffled = list[randomPick: 10]
         }
+        
     }
+
+class ServiceTrivia {
+    var list = [Question]()
+    var shuffled = [Question]()
+    
+    init() {
+        list.append(Question(questionText: "How many stones did David have available to kill Goliath?", choiceA: "5", choiceB: "10", choiceC: "3", choiceD: "1", answer: 1))
+        list.append(Question(questionText: "Which of the following was not one of the 10 Plagues?", choiceA: "Frogs out of the Nile River", choiceB: "Dust turned into gnats", choiceC: "Thunder and hail", choiceD: "Every second born son killed", answer: 4))
+        list.append(Question(questionText: "Which one of the following are not one of God's fruitage of the Spirit?", choiceA: "Love", choiceB: "Patience", choiceC: "Meekness", choiceD: "Peace", answer: 3))
+        list.append(Question(questionText: "Who was the King that wanted to build a tower so tall that it would reach into the heavens?", choiceA: "Hezekiah", choiceB: "Nim’rod", choiceC: "David", choiceD: "Pharoah", answer: 2))
+        list.append(Question(questionText: "Where was Ra’hab living when she hid the two Israelite spies?", choiceA: "Isreal", choiceB: "Haran", choiceC: "Babylon", choiceD: "Jericho", answer: 4))
+        list.append(Question(questionText: "Who was jealous of David and tried to kill him after he killed Goliath?", choiceA: "Saul", choiceB: "Abner", choiceC: "Jonathan", choiceD: "Solomon", answer: 1))
+        list.append(Question(questionText: "How many sons did Jacob have?", choiceA: "2", choiceB: "6", choiceC: "12", choiceD: "10", answer: 3))
+        list.append(Question(questionText: "What did Moses do to cause him to flee Egypt?", choiceA: "Kill an Egyptian", choiceB: "Not worship a false god", choiceC: "Steal money from the King", choiceD: "None of the above", answer: 1))
+        list.append(Question(questionText: "The name of Jacob’s twin brother was?", choiceA: "E’sau", choiceB: "Benjamin", choiceC: "Issac", choiceD: "Joseph", answer: 1))
+        list.append(Question(questionText: "Which one of these match this Bible text? May people know that you, whose name is Jehovah You alone are the Most High over all the earth...", choiceA: "Job 13:8", choiceB: "Psalm 83:18", choiceC: "Esther 2:6", choiceD: "1 Samuel 9:27", answer: 2))
+        list.append(Question(questionText: "What Bible book comes after Acts?", choiceA: "John", choiceB: "Matthew", choiceC: "Luke", choiceD: "Romans", answer: 4))
+        list.append(Question(questionText: "How many children did Job have?", choiceA: "7 sons, 3 daughters", choiceB: "7 Sons, 7 Daughters", choiceC: "2 sons, 4 daughters", choiceD: "12 sons, 4 daughters", answer: 1))
+        shuffled = list[randomPick: 10]
+    }
+}
 

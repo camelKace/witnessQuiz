@@ -7,10 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C80F810C22B96AE6004851C0 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C80F810B22B96AE6004851C0 /* HomeVC.swift */; };
+		C80F810E22B96D9A004851C0 /* QuestionFactoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C80F810D22B96D9A004851C0 /* QuestionFactoryVC.swift */; };
 		C827A78F22A55C41003EE2E8 /* 2394-dislike.json in Resources */ = {isa = PBXBuildFile; fileRef = C827A78E22A55C41003EE2E8 /* 2394-dislike.json */; };
 		C87D668C22A6E7880090F6B3 /* 676-done.json in Resources */ = {isa = PBXBuildFile; fileRef = C87D668B22A6E7880090F6B3 /* 676-done.json */; };
 		C8A7861222A571180076DAE1 /* 2393-green-like.json in Resources */ = {isa = PBXBuildFile; fileRef = C8A7861122A571180076DAE1 /* 2393-green-like.json */; };
-		C8B41EDB22A962C8005FCAC7 /* SplashVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8B41EDA22A962C8005FCAC7 /* SplashVC.swift */; };
+		C8B41EDB22A962C8005FCAC7 /* TriviaLevelVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8B41EDA22A962C8005FCAC7 /* TriviaLevelVC.swift */; };
 		C8D8AA6322A4841200108384 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8D8AA6222A4841200108384 /* AppDelegate.swift */; };
 		C8D8AA6522A4841200108384 /* QuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8D8AA6422A4841200108384 /* QuestionViewController.swift */; };
 		C8D8AA6822A4841200108384 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C8D8AA6622A4841200108384 /* Main.storyboard */; };
@@ -46,10 +48,12 @@
 		2CCDB1DC3E71086FB9D15577 /* Pods-witnessQuiz.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-witnessQuiz.debug.xcconfig"; path = "Target Support Files/Pods-witnessQuiz/Pods-witnessQuiz.debug.xcconfig"; sourceTree = "<group>"; };
 		7289F518D5F0760E14F7DA31 /* Pods_witnessQuiz.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_witnessQuiz.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4E1583089283D3D6F5133C2 /* Pods-witnessQuiz.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-witnessQuiz.release.xcconfig"; path = "Target Support Files/Pods-witnessQuiz/Pods-witnessQuiz.release.xcconfig"; sourceTree = "<group>"; };
+		C80F810B22B96AE6004851C0 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
+		C80F810D22B96D9A004851C0 /* QuestionFactoryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionFactoryVC.swift; sourceTree = "<group>"; };
 		C827A78E22A55C41003EE2E8 /* 2394-dislike.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "2394-dislike.json"; sourceTree = "<group>"; };
 		C87D668B22A6E7880090F6B3 /* 676-done.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "676-done.json"; sourceTree = "<group>"; };
 		C8A7861122A571180076DAE1 /* 2393-green-like.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "2393-green-like.json"; sourceTree = "<group>"; };
-		C8B41EDA22A962C8005FCAC7 /* SplashVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashVC.swift; sourceTree = "<group>"; };
+		C8B41EDA22A962C8005FCAC7 /* TriviaLevelVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TriviaLevelVC.swift; sourceTree = "<group>"; };
 		C8D8AA5F22A4841100108384 /* witnessQuiz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = witnessQuiz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C8D8AA6222A4841200108384 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C8D8AA6422A4841200108384 /* QuestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionViewController.swift; sourceTree = "<group>"; };
@@ -177,7 +181,9 @@
 		C8D8AA9022A48F2D00108384 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				C8B41EDA22A962C8005FCAC7 /* SplashVC.swift */,
+				C80F810B22B96AE6004851C0 /* HomeVC.swift */,
+				C80F810D22B96D9A004851C0 /* QuestionFactoryVC.swift */,
+				C8B41EDA22A962C8005FCAC7 /* TriviaLevelVC.swift */,
 				C8D8AA6422A4841200108384 /* QuestionViewController.swift */,
 				C8F6E2B222A5AB21003A456D /* ResultVC.swift */,
 			);
@@ -405,12 +411,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				C8D8AA9522A49B5D00108384 /* Question.swift in Sources */,
+				C80F810C22B96AE6004851C0 /* HomeVC.swift in Sources */,
 				C8F6E2B322A5AB21003A456D /* ResultVC.swift in Sources */,
 				C8D8AA9722A49D0800108384 /* questionBank.swift in Sources */,
 				C8D8AA9922A4B24800108384 /* Extension.swift in Sources */,
 				C8D8AA6522A4841200108384 /* QuestionViewController.swift in Sources */,
+				C80F810E22B96D9A004851C0 /* QuestionFactoryVC.swift in Sources */,
 				C8D8AA6322A4841200108384 /* AppDelegate.swift in Sources */,
-				C8B41EDB22A962C8005FCAC7 /* SplashVC.swift in Sources */,
+				C8B41EDB22A962C8005FCAC7 /* TriviaLevelVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

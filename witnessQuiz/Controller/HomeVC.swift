@@ -33,7 +33,7 @@ class HomeVC: UIViewController {
     }
     
     @IBAction func donationsButtonPressed(_ sender: UIButton) {
-        openSafari(for : "https://PayPal.me/camelKaceApps")
+        openSafari(for: "https://PayPal.me/camelKaceApps")
     }
     
     @IBAction func triviaModePressed(_ sender: UIButton) {

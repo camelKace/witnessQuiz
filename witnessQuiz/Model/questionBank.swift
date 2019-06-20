@@ -27,6 +27,8 @@ class EasyQuestionBank {
         list.append(Question(questionText: "Who was the man that baptized Jesus?", choiceA: "Judas", choiceB: "John", choiceC: "Paul", choiceD: "Joseph", answer: 2))
         list.append(Question(questionText: "Who was so angry and jealous it that caused him to kill his own brother?", choiceA: "Cain", choiceB: "Judah", choiceC: "Simeon", choiceD: "Reuben", answer: 1))
         list.append(Question(questionText: "How many trees had meaning in the Garden of Eden?", choiceA: "1", choiceB: "2", choiceC: "3", choiceD: "4", answer: 2))
+        list.append(Question(questionText: "How many Assyrian soldiers did Jehovah’s angel kill in one night?", choiceA: "5,000", choiceB: "200", choiceC: "10,000", choiceD: "185,000", answer: 4))
+        list.append(Question(questionText: "Who was Enoch’s father?", choiceA: "Cain", choiceB: "Adam", choiceC: "Job", choiceD: "None of the above", answer: 1))
         
         shuffled = list[randomPick: 10]
     }
@@ -37,6 +39,7 @@ class EasyQuestionBank {
         var shuffled = [Question]()
         
         init() {
+            list.append(Question(questionText: "Fill in the blank for one piece of the complete Suit of Armor.\n Stand firm, therefore, with the belt of _____. ", choiceA: "Truth", choiceB: "Righteousness", choiceC: "Salvation", choiceD: "Spirit", answer: 1))
             list.append(Question(questionText: "Fill in the blank of the missing Hebrew boys name.\n Hananiah, Azariah, and ______.", choiceA: "Mishael", choiceB: "Belteshaz'zar", choiceC: "Nebuchadnezzar", choiceD: "Sha'drach", answer: 1))
             list.append(Question(questionText: "How many stones did David have available to kill Goliath?", choiceA: "5", choiceB: "10", choiceC: "3", choiceD: "1", answer: 1))
             list.append(Question(questionText: "Which of the following was not one of the 10 Plagues?", choiceA: "Frogs out of the Nile River", choiceB: "Dust turned into gnats", choiceC: "Thunder and hail", choiceD: "Every second born son killed", answer: 4))
@@ -63,12 +66,12 @@ class EasyQuestionBank {
         var shuffled = [Question]()
         
         init() {
-            //In Progress
+            //TODO:In Progress
             list.append(Question(questionText: "Which King succeeded Herod when Joseph and Mary returned from Egypt?", choiceA: "", choiceB: "Archelaus", choiceC: "", choiceD: "", answer: 2))
-            //Google hebrew names
+            //TODO: Google hebrew names
             list.append(Question(questionText: "What was the Hebrew names of Shadrach, Meshach and Abednego?", choiceA: "", choiceB: "", choiceC: "Hananiah, Mishael & Azariah", choiceD: "", answer: 3))
             
-            
+            list.append(Question(questionText: "How long did Enoch’s son Me·thuʹse·lah live?", choiceA: "969 years", choiceB: "805 years", choiceC: "450 years", choiceD: "1000 years", answer: 1))
             list.append(Question(questionText: "What was special about Melchizedek?", choiceA: "He was a King and Priest at the same time", choiceB: "Was the oldest man to live", choiceC: "Was the richest King", choiceD: "Had 100 children", answer: 1))
             list.append(Question(questionText: "Who was the prophet that anointed the first King of Isreal?", choiceA: "Isaiah", choiceB: "Samuel", choiceC: "Elisha", choiceD: "Elijah", answer: 2))
             list.append(Question(questionText: "How much did Goliah's Coat of Mail weigh?", choiceA: "About 4.5kg (10 lbs)", choiceB: "About 9kg (20 lbs)", choiceC: "About 15kg (33 lbs)", choiceD: "About 57kg (125 lbs)", answer: 4))

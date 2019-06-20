@@ -8,27 +8,33 @@
 
 import UIKit
 import MessageUI
+import SafariServices
 
 class HomeVC: UIViewController {
     var questions: [Question]?
+    @IBOutlet var donationsButton: UIButton!
+    @IBOutlet var bibleTriviaButton: UIButton!
+    @IBOutlet var ministryButton: UIButton!
+    @IBOutlet var questionFactoryButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
     }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         addShadowButton(button: bibleTriviaButton)
         addShadowButton(button: ministryButton)
         addShadowButton(button: questionFactoryButton)
+        addShadowButton(button: donationsButton)
+        questionFactoryButton.pulsate()
         ministryButton.pulsate()
         bibleTriviaButton.pulsate()
     }
-
-    @IBOutlet var bibleTriviaButton: UIButton!
-    @IBOutlet var ministryButton: UIButton!
-    @IBOutlet var questionFactoryButton: UIButton!
     
+    @IBAction func donationsButtonPressed(_ sender: UIButton) {
+        openSafari(for : "https://PayPal.me/camelKaceApps")
+    }
     
     @IBAction func triviaModePressed(_ sender: UIButton) {
         if let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Level") as? TriviaLevelVC {
@@ -40,6 +46,14 @@ class HomeVC: UIViewController {
     
     @IBAction func serviceModePressed(_ sender: UIButton) {
         setQuestionBank(q: ServiceTrivia.init().shuffled)
+    }
+    
+    func openSafari(for url: String) {
+        guard let url = URL(string: url) else {
+            return
+        }
+        let safariVC = SFSafariViewController(url: url)
+        present(safariVC, animated: true)
     }
     
     func setQuestionBank(q: [Question]) {
@@ -54,7 +68,7 @@ class HomeVC: UIViewController {
     }
     
     @IBAction func questionFactoryPressed(_ sender: UIButton) {
-        let alert = UIAlertController(title: "Sending Suggestions", message: "Emailing a question requires that you also send the answer to the question. The answer needs to have backing sent along with it from the scriptures or Society publications.", preferredStyle: UIAlertController.Style.alert)
+        let alert = UIAlertController(title: "Sending Suggestions", message: "Sending a question requires that you also send the answer to the question. The answer needs to have scriptural backing sent along with it.", preferredStyle: UIAlertController.Style.alert)
         let okAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default) {
             UIAlertAction in
             let mailComposerViewController = self.configureMailController()

@@ -13,6 +13,7 @@ class EasyQuestionBank {
     var shuffled = [Question]()
 
     init() {
+        list.append(Question(questionText: "What food did Jehovah provide the Isrealites during the years they lived in the wilderness?", choiceA: "Manna", choiceB: "Rice", choiceC: "Meat", choiceD: "Fruit", answer: 1))
         list.append(Question(questionText: "Where was Jesus Born?", choiceA: "Bethlehem", choiceB: "Israel", choiceC: "Jerusalem", choiceD: "Egypt", answer: 1))
         list.append(Question(questionText: "What did David use to kill Goliath?", choiceA: "Stick", choiceB: "Sling and rock", choiceC: "Sword", choiceD: "Bow and arrow", answer: 2))
         list.append(Question(questionText: "Which of the following are not one of the 12 disciples?", choiceA: "Matthew", choiceB: "Andrew", choiceC: "Judas", choiceD: "Isaiah", answer: 4))
@@ -62,12 +63,13 @@ class EasyQuestionBank {
         var shuffled = [Question]()
         
         init() {
-            //TODO: In Progress
-            list.append(Question(questionText: "What was special about Melchizedek?", choiceA: "He was a King and Priest at the same time", choiceB: "Was the oldest man to live", choiceC: "", choiceD: "", answer: 1))
+            //In Progress
             list.append(Question(questionText: "Which King succeeded Herod when Joseph and Mary returned from Egypt?", choiceA: "", choiceB: "Archelaus", choiceC: "", choiceD: "", answer: 2))
             //Google hebrew names
             list.append(Question(questionText: "What was the Hebrew names of Shadrach, Meshach and Abednego?", choiceA: "", choiceB: "", choiceC: "Hananiah, Mishael & Azariah", choiceD: "", answer: 3))
             
+            
+            list.append(Question(questionText: "What was special about Melchizedek?", choiceA: "He was a King and Priest at the same time", choiceB: "Was the oldest man to live", choiceC: "Was the richest King", choiceD: "Had 100 children", answer: 1))
             list.append(Question(questionText: "Who was the prophet that anointed the first King of Isreal?", choiceA: "Isaiah", choiceB: "Samuel", choiceC: "Elisha", choiceD: "Elijah", answer: 2))
             list.append(Question(questionText: "How much did Goliah's Coat of Mail weigh?", choiceA: "About 4.5kg (10 lbs)", choiceB: "About 9kg (20 lbs)", choiceC: "About 15kg (33 lbs)", choiceD: "About 57kg (125 lbs)", answer: 4))
             list.append(Question(questionText: "Which one of the following disciples was a tax collector?", choiceA: "Matthew", choiceB: "Andrew", choiceC: "Peter", choiceD: "None of the above", answer: 1))

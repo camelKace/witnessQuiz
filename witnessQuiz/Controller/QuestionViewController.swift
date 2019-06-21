@@ -14,6 +14,12 @@ var isRunning = false
 var counter = 0
 
 class QuestionViewController: UIViewController {
+    
+    var questionBank: [Question]?
+    var questionNumber: Int = 0
+    var score: Int = 0
+    var selectedAnswer: Int = 0
+    var isServiceView: Bool?
     @IBOutlet var thumbsUpView: AnimationView!
     @IBOutlet var thumbsDownView: AnimationView!
     @IBOutlet weak var questionCounter: UILabel!
@@ -26,13 +32,6 @@ class QuestionViewController: UIViewController {
     @IBOutlet var choiceD: UIButton!
     @IBOutlet var nextButton: UIButton!
     @IBOutlet var image: UIImageView!
-    var questionBank: [Question]?
-    var questionNumber: Int = 0
-    var score: Int = 0
-    var selectedAnswer: Int = 0
-    var alertText: String = ""
-    var isServiceView: Bool?
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,6 +50,12 @@ class QuestionViewController: UIViewController {
         }
     }
     
+    @IBAction func nextButtonPressed(_ sender: Any) {
+        questionNumber += 1
+        updateQuestion()
+        sendToResults()
+    }
+    
     func setUpTimer() {
         counter = 0
         isRunning = true
@@ -60,9 +65,7 @@ class QuestionViewController: UIViewController {
     @objc func updateTimer() {
     counter += 1
     }
-    func alertQuestionAnswer() {
-        
-    }
+    
     @IBAction func buttonPressed(_ sender: UIButton) {
         settingUpAnimations(sender: sender)
         switch selectedAnswer {
@@ -77,7 +80,6 @@ class QuestionViewController: UIViewController {
             choiceD.isEnabled = false
             choiceA.isEnabled = false
             nextButton.pulsate()
-            alertQuestionAnswer()
         case 2:
             choiceB.backgroundColor = greenColor
             choiceB.flash()
@@ -135,12 +137,6 @@ class QuestionViewController: UIViewController {
         }
     }
     
-    @IBAction func nextButtonPressed(_ sender: Any) {
-        questionNumber += 1
-        updateQuestion()
-        sendToResults()
-    }
-    
     func sendToResults() {
         //Send to ResultsVC if quiz reaches last question
         if questionNumber == 10 {
@@ -179,7 +175,6 @@ class QuestionViewController: UIViewController {
         if questionNumber <= 10 - 1{
             switchQuestionBank(arrayOfQuestions: questionBank!)
         }
-        
         updateUI()
     }
     

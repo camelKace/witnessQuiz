@@ -30,7 +30,6 @@ class TriviaLevelVC: UIViewController {
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         self.navigationController?.hideShadow()
         navigationController?.navigationBar.barTintColor = UIColor.white
-        self.navigationController?.title = "Bible Trivia"
     }
 
     func setQuestionBank(q: [Question]) {

@@ -12,57 +12,33 @@ import SafariServices
 
 class HomeVC: UIViewController {
     var questions: [Question]?
-    @IBOutlet var donationsButton: UIButton!
+
     @IBOutlet var bibleTriviaButton: UIButton!
     @IBOutlet var questionFactoryButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Share App", style: .plain, target: self, action: #selector(share(sender:)))
     }
+    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         addShadowButton(button: bibleTriviaButton)
-//        addShadowButton(button: ministryButton)
         addShadowButton(button: questionFactoryButton)
-        addShadowButton(button: donationsButton)
         questionFactoryButton.pulsate()
  //       ministryButton.pulsate()
         bibleTriviaButton.pulsate()
-        donationsButton.pulsate()
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         self.navigationController?.hideShadow()
     }
     
-    @IBAction func donationsButtonPressed(_ sender: UIButton) {
-        openSafari(for: "https://PayPal.me/camelKaceApps")
+    @IBAction func aboutMePressed(_ sender: UIButton) {
+        openSafari(for: "https://camelKace.wixsite.com/mysite")
     }
     
     @IBAction func triviaModePressed(_ sender: UIButton) {
         if let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Level") as? TriviaLevelVC {
-            if let navigator = navigationController {
-                navigator.pushViewController(viewController, animated: true)
-            }
-        }
-    }
-    
-//    @IBAction func serviceModePressed(_ sender: UIButton) {
-//        setQuestionBank(q: ServiceTrivia.init().shuffled)
-//    }
-    
-    func openSafari(for url: String) {
-        guard let url = URL(string: url) else {
-            return
-        }
-        let safariVC = SFSafariViewController(url: url)
-        present(safariVC, animated: true)
-    }
-    
-    func setQuestionBank(q: [Question]) {
-        if let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Question") as? QuestionViewController {
-            questions = q
-            viewController.questionBank = questions
-            viewController.isServiceView = true
             if let navigator = navigationController {
                 navigator.pushViewController(viewController, animated: true)
             }
@@ -86,6 +62,49 @@ class HomeVC: UIViewController {
         alert.addAction(okAction)
         alert.addAction(cancelAction)
         self.present(alert, animated: true, completion: nil)
+    }
+    
+//    @IBAction func serviceModePressed(_ sender: UIButton) {
+//        setQuestionBank(q: ServiceTrivia.init().shuffled)
+//    }
+ 
+    @objc func share(sender:UIView) {
+        UIGraphicsBeginImageContext(view.frame.size)
+        view.layer.render(in: UIGraphicsGetCurrentContext()!)
+        let image = UIImage(named: "Untitled")
+        UIGraphicsEndImageContext()
+        
+        let textToShare = "Check out SpirituallyFit on iOS!"
+        
+        if let myWebsite = URL(string: "https:apps.apple.com/app/id1468161128") {
+            let objectsToShare = [textToShare, myWebsite, image ?? #imageLiteral(resourceName: "app-logo")] as [Any]
+            let activityVC = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
+            
+            activityVC.excludedActivityTypes = [UIActivity.ActivityType.airDrop, UIActivity.ActivityType.addToReadingList]
+            
+            activityVC.popoverPresentationController?.sourceView = sender
+            self.present(activityVC, animated: true, completion: nil)
+        }
+        
+    }
+    
+    func openSafari(for url: String) {
+        guard let url = URL(string: url) else {
+            return
+        }
+        let safariVC = SFSafariViewController(url: url)
+        present(safariVC, animated: true)
+    }
+    
+    func setQuestionBank(q: [Question]) {
+        if let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Question") as? QuestionViewController {
+            questions = q
+            viewController.questionBank = questions
+            viewController.isServiceView = true
+            if let navigator = navigationController {
+                navigator.pushViewController(viewController, animated: true)
+            }
+        }
     }
     
     func showMailError() {

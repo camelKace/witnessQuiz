@@ -14,7 +14,6 @@ class HomeVC: UIViewController {
     var questions: [Question]?
     @IBOutlet var donationsButton: UIButton!
     @IBOutlet var bibleTriviaButton: UIButton!
-    @IBOutlet var ministryButton: UIButton!
     @IBOutlet var questionFactoryButton: UIButton!
     
     override func viewDidLoad() {
@@ -24,12 +23,15 @@ class HomeVC: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         addShadowButton(button: bibleTriviaButton)
-        addShadowButton(button: ministryButton)
+//        addShadowButton(button: ministryButton)
         addShadowButton(button: questionFactoryButton)
         addShadowButton(button: donationsButton)
         questionFactoryButton.pulsate()
-        ministryButton.pulsate()
+ //       ministryButton.pulsate()
         bibleTriviaButton.pulsate()
+        donationsButton.pulsate()
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        self.navigationController?.hideShadow()
     }
     
     @IBAction func donationsButtonPressed(_ sender: UIButton) {
@@ -44,9 +46,9 @@ class HomeVC: UIViewController {
         }
     }
     
-    @IBAction func serviceModePressed(_ sender: UIButton) {
-        setQuestionBank(q: ServiceTrivia.init().shuffled)
-    }
+//    @IBAction func serviceModePressed(_ sender: UIButton) {
+//        setQuestionBank(q: ServiceTrivia.init().shuffled)
+//    }
     
     func openSafari(for url: String) {
         guard let url = URL(string: url) else {

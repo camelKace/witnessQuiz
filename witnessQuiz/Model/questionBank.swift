@@ -20,7 +20,7 @@ class EasyQuestionBank {
         list.append(Question(questionText: "Which one of these match this Bible text? He will wipe out every tear from their eyes, and death will be no more...", choiceA: "Genesis 4:8", choiceB: "Psalms 21:8", choiceC: "1 Peter 5:5", choiceD: "Revelation 21:4", answer: 4))
         list.append(Question(questionText: "What Bible character was swallowed whole by a fish?", choiceA: "Noah", choiceB: "Jonah", choiceC: "Daniel", choiceD: "Job", answer: 2))
         list.append(Question(questionText: "Lots wife turned into what when she looked back at the city of Sodom and Gomorrah?", choiceA: "Sand", choiceB: "Pillar of Salt", choiceC: "Dust", choiceD: "Ice", answer: 2))
-        list.append(Question(questionText: "Who did Jehovah call his Friend?", choiceA: "Jesus", choiceB: "Jeremiah", choiceC: "Moses", choiceD: "Abraham", answer: 4))
+        list.append(Question(questionText: "Who did Jehovah call his friend?", choiceA: "Jesus", choiceB: "Jeremiah", choiceC: "Moses", choiceD: "Abraham", answer: 4))
         list.append(Question(questionText: "Who did Jehovah use to part the Red Sea?", choiceA: "Moses", choiceB: "Aaron", choiceC: "Joshua", choiceD: "None of the above", answer: 1))
         list.append(Question(questionText: "Who is the Bible character Jehovah spoke to through a bush on fire?", choiceA: "Timothy", choiceB: "Daniel", choiceC: "Moses", choiceD: "Joseph", answer: 3))
         list.append(Question(questionText: "Who was the strongest man who ever lived on earth?", choiceA: "Jesus", choiceB: "Micah", choiceC: "Samson", choiceD: "David", answer: 3))
@@ -29,6 +29,7 @@ class EasyQuestionBank {
         list.append(Question(questionText: "How many trees had meaning in the Garden of Eden?", choiceA: "1", choiceB: "2", choiceC: "3", choiceD: "4", answer: 2))
         list.append(Question(questionText: "How many Assyrian soldiers did Jehovah’s angel kill in one night?", choiceA: "5,000", choiceB: "200", choiceC: "10,000", choiceD: "185,000", answer: 4))
         list.append(Question(questionText: "Who was Enoch’s father?", choiceA: "Cain", choiceB: "Adam", choiceC: "Job", choiceD: "None of the above", answer: 1))
+        list.append(Question(questionText: "Which one of these match this Bible text? And this good news of the Kingdom will be preached in all the inhabited earth... ", choiceA: "Matthew 24:14", choiceB: "Exodus 39:2", choiceC: "1 Chronicles 8:10", choiceD: "Zechariah 8:2", answer: 1))
         
         shuffled = list[randomPick: 10]
     }
@@ -67,17 +68,15 @@ class EasyQuestionBank {
         
         init() {
             //TODO:In Progress
-            list.append(Question(questionText: "Which King succeeded Herod when Joseph and Mary returned from Egypt?", choiceA: "", choiceB: "Archelaus", choiceC: "", choiceD: "", answer: 2))
-            //TODO: Google hebrew names
-            list.append(Question(questionText: "What was the Hebrew names of Shadrach, Meshach and Abednego?", choiceA: "", choiceB: "", choiceC: "Hananiah, Mishael & Azariah", choiceD: "", answer: 3))
-            
+//            list.append(Question(questionText: "Which King succeeded Herod when Joseph and Mary returned from Egypt?", choiceA: "", choiceB: "Archelaus", choiceC: "", choiceD: "", answer: 2))
+//            //TODO: Google hebrew names
+//            list.append(Question(questionText: "What was the Hebrew names of Shadrach, Meshach and Abednego?", choiceA: "", choiceB: "", choiceC: "Hananiah, Mishael & Azariah", choiceD: "", answer: 3))
             list.append(Question(questionText: "How long did Enoch’s son Me·thuʹse·lah live?", choiceA: "969 years", choiceB: "805 years", choiceC: "450 years", choiceD: "1000 years", answer: 1))
             list.append(Question(questionText: "What was special about Melchizedek?", choiceA: "He was a King and Priest at the same time", choiceB: "Was the oldest man to live", choiceC: "Was the richest King", choiceD: "Had 100 children", answer: 1))
             list.append(Question(questionText: "Who was the prophet that anointed the first King of Isreal?", choiceA: "Isaiah", choiceB: "Samuel", choiceC: "Elisha", choiceD: "Elijah", answer: 2))
             list.append(Question(questionText: "How much did Goliah's Coat of Mail weigh?", choiceA: "About 4.5kg (10 lbs)", choiceB: "About 9kg (20 lbs)", choiceC: "About 15kg (33 lbs)", choiceD: "About 57kg (125 lbs)", answer: 4))
             list.append(Question(questionText: "Which one of the following disciples was a tax collector?", choiceA: "Matthew", choiceB: "Andrew", choiceC: "Peter", choiceD: "None of the above", answer: 1))
             list.append(Question(questionText: "What Bible book goes after Job?", choiceA: "Proverbs", choiceB: "Numbers", choiceC: "Psalm", choiceD: "Lamentations", answer: 3))
-            list.append(Question(questionText: "Which one of these match this Bible text? And this good news of the Kingdom will be preached in all the inhabited earth... ", choiceA: "Matthew 24:14", choiceB: "Exodus 39:2", choiceC: "1 Chronicles 8:10", choiceD: "Zechariah 8:2", answer: 1))
             list.append(Question(questionText: "At what age was Jesus baptized?", choiceA: "24", choiceB: "12", choiceC: "30", choiceD: "19", answer: 3))
             list.append(Question(questionText: "How many people did Jesus feed with 7 loaves of bread and a few small fish?", choiceA: "1000", choiceB: "200", choiceC: "4000", choiceD: "5000", answer: 3))
             list.append(Question(questionText: "Joseph was thrown into prison because of whose wife?", choiceA: "Pharaoh's", choiceB: "Potiphar’s", choiceC: "Nim'rod's", choiceD: "None of the above", answer: 2))
@@ -96,7 +95,7 @@ class ServiceTrivia {
     var shuffled = [Question]()
     
     init() {
-        list.append(Question(questionText: "Service question 1?", choiceA: "5", choiceB: "10", choiceC: "3", choiceD: "1", answer: 1))
+        list.append(Question(questionText: "What happens to the dead?", choiceA: "5", choiceB: "10", choiceC: "3", choiceD: "1", answer: 1))
         list.append(Question(questionText: "Service question 2?", choiceA: "Frogs out of the Nile River", choiceB: "Dust turned into gnats", choiceC: "Thunder and hail", choiceD: "Every second born son killed", answer: 4))
         list.append(Question(questionText: "Service question 3?", choiceA: "Love", choiceB: "Patience", choiceC: "Meekness", choiceD: "Peace", answer: 3))
         list.append(Question(questionText: "Service question 4?", choiceA: "Hezekiah", choiceB: "Nim’rod", choiceC: "David", choiceD: "Pharoah", answer: 2))

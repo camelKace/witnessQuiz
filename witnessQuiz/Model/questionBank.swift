@@ -30,6 +30,7 @@ class EasyQuestionBank {
         list.append(Question(questionText: "How many Assyrian soldiers did Jehovah’s angel kill in one night?", choiceA: "5,000", choiceB: "200", choiceC: "10,000", choiceD: "185,000", answer: 4))
         list.append(Question(questionText: "Who was Enoch’s father?", choiceA: "Cain", choiceB: "Adam", choiceC: "Job", choiceD: "None of the above", answer: 1))
         list.append(Question(questionText: "Which one of these match this Bible text? And this good news of the Kingdom will be preached in all the inhabited earth... ", choiceA: "Matthew 24:14", choiceB: "Exodus 39:2", choiceC: "1 Chronicles 8:10", choiceD: "Zechariah 8:2", answer: 1))
+        list.append(Question(questionText: "What sea did the Isrealites cross when leaving Egypt?", choiceA: "Red Sea", choiceB: "Indian Sea", choiceC: "Dead Sea", choiceD: "Jordan River", answer: 1))
         
         shuffled = list[randomPick: 10]
     }
@@ -54,6 +55,7 @@ class EasyQuestionBank {
             list.append(Question(questionText: "Which one of these match this Bible text? May people know that you, whose name is Jehovah You alone are the Most High over all the earth...", choiceA: "Job 13:8", choiceB: "Psalm 83:18", choiceC: "Esther 2:6", choiceD: "1 Samuel 9:27", answer: 2))
             list.append(Question(questionText: "What Bible book comes after Acts?", choiceA: "John", choiceB: "Matthew", choiceC: "Luke", choiceD: "Romans", answer: 4))
             list.append(Question(questionText: "How many children did Job have?", choiceA: "7 sons, 3 daughters", choiceB: "7 Sons, 7 Daughters", choiceC: "2 sons, 4 daughters", choiceD: "12 sons, 4 daughters", answer: 1))
+            list.append(Question(questionText: "Psalm 83:18 proves that?", choiceA: "Evolution is wrong", choiceB: "God's name is Jehovah", choiceC: "God Created everything", choiceD: "None of the above", answer: 2))
             
             //TODO: Fact Check
             list.append(Question(questionText: "How many books of the Bible did Moses write?", choiceA: "10", choiceB: "15", choiceC: "2", choiceD: "5", answer: 4))
@@ -72,6 +74,10 @@ class EasyQuestionBank {
 //            //TODO: Google hebrew names
 //            list.append(Question(questionText: "What was the Hebrew names of Shadrach, Meshach and Abednego?", choiceA: "", choiceB: "", choiceC: "Hananiah, Mishael & Azariah", choiceD: "", answer: 3))
             list.append(Question(questionText: "How long did Enoch’s son Me·thuʹse·lah live?", choiceA: "969 years", choiceB: "805 years", choiceC: "450 years", choiceD: "1000 years", answer: 1))
+            list.append(Question(questionText: "Which minerals could be found in the mountains of Palestine?", choiceA: "Gold", choiceB: "Steel", choiceC: "Aluminum", choiceD: "Iron and Copper", answer: 4))
+            list.append(Question(questionText: "Which of these books is not part of the poetic books of the Bible?", choiceA: "Revelation", choiceB: "Psalms", choiceC: "Ecclesiastes", choiceD: "Job", answer: 1))
+            list.append(Question(questionText: "Match the bible verse. \n I say to you: You are Peter, and on this rock I will build my congregation, and the gates of the Grave will not overpower it.", choiceA: "John 16:18", choiceB: "Matthew 16:18", choiceC: "Mark 2:1", choiceD: "Luke 1:1", answer: 2))
+            list.append(Question(questionText: "How many days were the 12 spies in the land of Canaan?", choiceA: "30", choiceB: "15", choiceC: "5", choiceD: "40", answer: 4))
             list.append(Question(questionText: "What was special about Melchizedek?", choiceA: "He was a King and Priest at the same time", choiceB: "Was the oldest man to live", choiceC: "Was the richest King", choiceD: "Had 100 children", answer: 1))
             list.append(Question(questionText: "Who was the prophet that anointed the first King of Isreal?", choiceA: "Isaiah", choiceB: "Samuel", choiceC: "Elisha", choiceD: "Elijah", answer: 2))
             list.append(Question(questionText: "How much did Goliah's Coat of Mail weigh?", choiceA: "About 4.5kg (10 lbs)", choiceB: "About 9kg (20 lbs)", choiceC: "About 15kg (33 lbs)", choiceD: "About 57kg (125 lbs)", answer: 4))

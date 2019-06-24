@@ -318,7 +318,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" red="0.75935683076481952" green="0.75816980884020824" blue="0.77890412517162189" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="6hu-Rs-pfr" firstAttribute="centerY" secondItem="NHS-JT-FGL" secondAttribute="centerY" id="AoH-ZW-NSw"/>
                                     <constraint firstItem="6hu-Rs-pfr" firstAttribute="leading" secondItem="NHS-JT-FGL" secondAttribute="leading" constant="19" id="Dk8-GL-lop"/>
@@ -561,11 +561,11 @@
                             <constraint firstItem="ZSD-5m-Lmt" firstAttribute="top" secondItem="FNZ-OD-4Ug" secondAttribute="top" id="7EF-xM-Li0"/>
                             <constraint firstItem="a7v-MK-d3Y" firstAttribute="centerX" secondItem="9uN-cZ-RYA" secondAttribute="centerX" id="87E-EJ-v0V"/>
                             <constraint firstItem="ZSD-5m-Lmt" firstAttribute="leading" secondItem="FNZ-OD-4Ug" secondAttribute="leading" id="9Jg-55-GEp"/>
-                            <constraint firstItem="Uwx-Ta-qZR" firstAttribute="leading" secondItem="FNZ-OD-4Ug" secondAttribute="leading" constant="66" id="OOP-s1-bym"/>
                             <constraint firstItem="ZSD-5m-Lmt" firstAttribute="trailing" secondItem="FNZ-OD-4Ug" secondAttribute="trailing" id="QiH-o1-7O0"/>
                             <constraint firstItem="7ri-KS-TE3" firstAttribute="top" secondItem="Uwx-Ta-qZR" secondAttribute="bottom" constant="72" id="VNW-OO-GtN"/>
                             <constraint firstItem="FNZ-OD-4Ug" firstAttribute="bottom" secondItem="a7v-MK-d3Y" secondAttribute="bottom" constant="18" id="asx-Lg-c9l"/>
                             <constraint firstItem="7ri-KS-TE3" firstAttribute="centerX" secondItem="9uN-cZ-RYA" secondAttribute="centerX" id="bIx-yc-Qvb"/>
+                            <constraint firstItem="Uwx-Ta-qZR" firstAttribute="centerX" secondItem="9uN-cZ-RYA" secondAttribute="centerX" id="ffp-Xa-mJz"/>
                             <constraint firstItem="Uwx-Ta-qZR" firstAttribute="top" secondItem="ZSD-5m-Lmt" secondAttribute="bottom" constant="164" id="gSg-Vz-v9A"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="FNZ-OD-4Ug"/>

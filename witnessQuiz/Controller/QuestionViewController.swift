@@ -70,71 +70,54 @@ class QuestionViewController: UIViewController {
         settingUpAnimations(sender: sender)
         switch selectedAnswer {
         case 1:
-            choiceA.backgroundColor = greenColor
-            choiceA.flash()
-            choiceB.backgroundColor = red
-            choiceC.backgroundColor = red
-            choiceD.backgroundColor = red
-            choiceB.isEnabled = false
-            choiceC.isEnabled = false
-            choiceD.isEnabled = false
-            choiceA.isEnabled = false
-            nextButton.pulsate()
+            setupAnswers(correct: choiceA, wrong: [choiceB,choiceC,choiceD])
         case 2:
-            choiceB.backgroundColor = greenColor
-            choiceB.flash()
-            choiceA.backgroundColor = red
-            choiceC.backgroundColor = red
-            choiceD.backgroundColor = red
-            choiceA.isEnabled = false
-            choiceC.isEnabled = false
-            choiceD.isEnabled = false
-            choiceB.isEnabled = false
-            nextButton.pulsate()
+            setupAnswers(correct: choiceB, wrong: [choiceA, choiceC, choiceD])
         case 3:
-            choiceC.backgroundColor = greenColor
-            choiceC.flash()
-            choiceB.backgroundColor = red
-            choiceA.backgroundColor = red
-            choiceD.backgroundColor = red
-            choiceB.isEnabled = false
-            choiceA.isEnabled = false
-            choiceD.isEnabled = false
-            choiceC.isEnabled = false
-            nextButton.pulsate()
+            setupAnswers(correct: choiceC, wrong: [choiceA, choiceB, choiceD])
         case 4:
-            choiceD.backgroundColor = greenColor
-            choiceD.flash()
-            choiceB.backgroundColor = red
-            choiceC.backgroundColor = red
-            choiceA.backgroundColor = red
-            choiceB.isEnabled = false
-            choiceC.isEnabled = false
-            choiceA.isEnabled = false
-            choiceD.isEnabled = false
-            nextButton.pulsate()
+            setupAnswers(correct: choiceD, wrong: [choiceA, choiceB, choiceC])
         default:
-            print("Unknown")
+            setupAnswers(correct: choiceA, wrong: [choiceB,choiceC,choiceD])
         }
+        
+        if selectedAnswer != questionBank?[questionNumber].correctAnswer {
+            let generator = UIImpactFeedbackGenerator(style: .light)
+            generator.impactOccurred()
+        }
+    }
+    
+    func setupAnswers(correct: UIButton, wrong: [UIButton]) {
+        correct.backgroundColor = greenColor
+        correct.flash()
+        correct.isEnabled = false
+        for button in wrong {
+            button.backgroundColor = red
+            button.backgroundColor = red
+            button.backgroundColor = red
+            button.isEnabled = false
+            button.isEnabled = false
+            button.isEnabled = false
+        }
+        nextButton.pulsate()
     }
     
     func settingUpAnimations(sender: UIButton) {
         if sender.tag == selectedAnswer {
-            let thumbsUpAnimation =  AnimationView(name: "2393-green-like")
-            thumbsUpAnimation.contentMode = .scaleAspectFit
-            self.thumbsUpView.addSubview(thumbsUpAnimation)
-            thumbsUpAnimation.frame = self.thumbsUpView.bounds
-            thumbsUpView.alpha = 1
-            thumbsUpAnimation.play()
+            settingAnimations(animationString: "2393-green-like", animationView: thumbsUpView)
             score += 1
         } else {
-            let dislikeAnimation =  AnimationView(name: "2394-dislike")
-            dislikeAnimation.contentMode = .scaleAspectFit
-            self.thumbsDownView.addSubview(dislikeAnimation)
-            dislikeAnimation.frame = self.thumbsDownView.bounds
-            thumbsDownView.alpha = 1
-            dislikeAnimation.play()
+            settingAnimations(animationString: "2394-dislike", animationView: thumbsDownView)
         }
+    }
+    
+    func settingAnimations(animationString: String, animationView: AnimationView!) {
+        let animation =  AnimationView(name: animationString)
+        animation.contentMode = .scaleAspectFit
+        animationView.addSubview(animation)
+        animation.frame = animationView.bounds
+        animationView.alpha = 1
+        animation.play()
     }
     
     func sendToResults() {

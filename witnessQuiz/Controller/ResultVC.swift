@@ -11,12 +11,12 @@ import Lottie
 
 class ResultVC: UIViewController {
     
+    var questions: [Question]?
     var scre:Int = 0
     var totalQuestions: Int = 0
     let animationDuration: Double = 0.8
     let animationStartDate = Date()
     let startValue = 0
-    var questions: [Question]?
     @IBOutlet var homeButton: UIButton!
     @IBOutlet var restartButton: UIButton!
     @IBOutlet var resultLabel: UILabel!
@@ -42,18 +42,6 @@ class ResultVC: UIViewController {
             let value = Double(startValue) + percentage * Double(scre - startValue)
             resultLabel.text = "\(Int(value)) / \(totalQuestions)"
             resultLabel.pulsate()
-        }
-    }
-    
-    @IBAction func homeButtonPressed(_ sender: Any) {
-        if let destinationViewController = navigationController?.viewControllers.filter({$0.classForCoder == HomeVC.self}).first {
-        navigationController?.popToViewController(destinationViewController, animated: true)
-        }
-    }
-    
-    @IBAction func restartButton(_ sender: Any) {
-        if let destinationViewController = navigationController?.viewControllers.filter({$0.classForCoder == TriviaLevelVC.self}).first {
-            navigationController?.popToViewController(destinationViewController, animated: true)
         }
     }
     
@@ -86,15 +74,6 @@ class ResultVC: UIViewController {
         //Adding shadow to buttons
         addShadowButton(button: restartButton)
         addShadowButton(button: homeButton)
-    }
-    func setQuestionBank(q: [Question]) {
-        if let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Question") as? QuestionViewController {
-            questions = q
-            viewController.questionBank = questions
-            if let navigator = navigationController {
-                navigator.pushViewController(viewController, animated: true)
-            }
-        }
     }
     
 }

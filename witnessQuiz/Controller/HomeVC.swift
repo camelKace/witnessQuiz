@@ -11,16 +11,14 @@ import MessageUI
 import SafariServices
 
 class HomeVC: UIViewController {
+    
     var questions: [Question]?
-
     @IBOutlet var bibleTriviaButton: UIButton!
     @IBOutlet var questionFactoryButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Share App", style: .plain, target: self, action: #selector(share(sender:)))
     }
-    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
@@ -29,20 +27,10 @@ class HomeVC: UIViewController {
         questionFactoryButton.pulsate()
  //       ministryButton.pulsate()
         bibleTriviaButton.pulsate()
-        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
-        self.navigationController?.hideShadow()
     }
     
     @IBAction func aboutMePressed(_ sender: UIButton) {
         openSafari(for: "https://camelKace.wixsite.com/mysite")
-    }
-    
-    @IBAction func triviaModePressed(_ sender: UIButton) {
-        if let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Level") as? TriviaLevelVC {
-            if let navigator = navigationController {
-                navigator.pushViewController(viewController, animated: true)
-            }
-        }
     }
     
     @IBAction func questionFactoryPressed(_ sender: UIButton) {
@@ -94,17 +82,6 @@ class HomeVC: UIViewController {
         }
         let safariVC = SFSafariViewController(url: url)
         present(safariVC, animated: true)
-    }
-    
-    func setQuestionBank(q: [Question]) {
-        if let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Question") as? QuestionViewController {
-            questions = q
-            viewController.questionBank = questions
-            viewController.isServiceView = true
-            if let navigator = navigationController {
-                navigator.pushViewController(viewController, animated: true)
-            }
-        }
     }
     
     func showMailError() {

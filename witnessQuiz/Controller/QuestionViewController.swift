@@ -36,9 +36,6 @@ class QuestionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         restartQuiz()
-        navigationController?.navigationBar.topItem?.title = ""
-        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
-        self.navigationController?.hideShadow()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -53,7 +50,11 @@ class QuestionViewController: UIViewController {
     @IBAction func nextButtonPressed(_ sender: Any) {
         questionNumber += 1
         updateQuestion()
-        sendToResults()
+        if questionNumber == 10 {
+            performSegue(withIdentifier: "results", sender: nil)
+            timer.invalidate()
+            isRunning = false
+        }
     }
     
     func setUpTimer() {
@@ -67,27 +68,22 @@ class QuestionViewController: UIViewController {
     }
     
     @IBAction func buttonPressed(_ sender: UIButton) {
-        settingUpAnimations(sender: sender)
+        resultUI(sender: sender)
         switch selectedAnswer {
         case 1:
-            setupAnswers(correct: choiceA, wrong: [choiceB,choiceC,choiceD])
+            setupAnswersUI(correct: choiceA, wrong: [choiceB,choiceC,choiceD])
         case 2:
-            setupAnswers(correct: choiceB, wrong: [choiceA, choiceC, choiceD])
+            setupAnswersUI(correct: choiceB, wrong: [choiceA, choiceC, choiceD])
         case 3:
-            setupAnswers(correct: choiceC, wrong: [choiceA, choiceB, choiceD])
+            setupAnswersUI(correct: choiceC, wrong: [choiceA, choiceB, choiceD])
         case 4:
-            setupAnswers(correct: choiceD, wrong: [choiceA, choiceB, choiceC])
+            setupAnswersUI(correct: choiceD, wrong: [choiceA, choiceB, choiceC])
         default:
-            setupAnswers(correct: choiceA, wrong: [choiceB,choiceC,choiceD])
-        }
-        
-        if selectedAnswer != questionBank?[questionNumber].correctAnswer {
-            let generator = UIImpactFeedbackGenerator(style: .light)
-            generator.impactOccurred()
+            setupAnswersUI(correct: choiceA, wrong: [choiceB,choiceC,choiceD])
         }
     }
     
-    func setupAnswers(correct: UIButton, wrong: [UIButton]) {
+    func setupAnswersUI(correct: UIButton, wrong: [UIButton]) {
         correct.backgroundColor = greenColor
         correct.flash()
         correct.isEnabled = false
@@ -102,12 +98,14 @@ class QuestionViewController: UIViewController {
         nextButton.pulsate()
     }
     
-    func settingUpAnimations(sender: UIButton) {
+    func resultUI(sender: UIButton) {
         if sender.tag == selectedAnswer {
             settingAnimations(animationString: "2393-green-like", animationView: thumbsUpView)
             score += 1
         } else {
             settingAnimations(animationString: "2394-dislike", animationView: thumbsDownView)
+            let generator = UIImpactFeedbackGenerator(style: .light)
+            generator.impactOccurred()
         }
     }
     
@@ -119,22 +117,7 @@ class QuestionViewController: UIViewController {
         animationView.alpha = 1
         animation.play()
     }
-    
-    func sendToResults() {
-        //Send to ResultsVC if quiz reaches last question
-        if questionNumber == 10 {
-            if let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Result") as? ResultVC {
-                timer.invalidate()
-                isRunning = false
-                viewController.scre = score
-                viewController.totalQuestions = 10
-                if let navigator = navigationController {
-                    navigator.pushViewController(viewController, animated: true)
-                }
-            }
-        }
-    }
-    
+
     func updateQuestion() {
         func switchQuestionBank(arrayOfQuestions: [Question]) {
             questionLabel.text = arrayOfQuestions[questionNumber].question
@@ -156,7 +139,11 @@ class QuestionViewController: UIViewController {
         }
         
         if questionNumber <= 10 - 1{
-            switchQuestionBank(arrayOfQuestions: questionBank!)
+            if let questions = questionBank {
+                switchQuestionBank(arrayOfQuestions: questions)
+            } else {
+                print("questions value is nil")
+            }
         }
         updateUI()
     }
@@ -204,5 +191,16 @@ class QuestionViewController: UIViewController {
         updateQuestion()
         nextButton.setTitle("Next", for: .normal)
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "results" {
+            guard let destination = segue.destination as? ResultVC else {
+                fatalError("ERROR: destination is nil")
+            }
+            destination.scre = score
+            destination.totalQuestions = 10
+        }
+    }
+
     
 }

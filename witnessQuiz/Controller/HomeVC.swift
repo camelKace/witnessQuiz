@@ -15,18 +15,16 @@ class HomeVC: UIViewController {
     var questions: [Question]?
     @IBOutlet var bibleTriviaButton: UIButton!
     @IBOutlet var questionFactoryButton: UIButton!
-    
+    @IBOutlet var bibleTriviaShadow: UIView!
+    @IBOutlet var questionFactoryShadow: UIView!
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        addShadowButton(button: bibleTriviaButton)
-        addShadowButton(button: questionFactoryButton)
-        questionFactoryButton.pulsate()
- //       ministryButton.pulsate()
-        bibleTriviaButton.pulsate()
+        bibleTriviaShadow.pulsing()
+        questionFactoryShadow.pulsing()
     }
     
     @IBAction func aboutMePressed(_ sender: UIButton) {

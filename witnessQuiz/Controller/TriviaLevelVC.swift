@@ -14,15 +14,19 @@ class TriviaLevelVC: UIViewController {
     @IBOutlet var mediumButton: UIButton!
     @IBOutlet var hardButton: UIButton!
     
+    @IBOutlet var buttonShadow: UIView!
+    @IBOutlet var hardShadow: UIView!
+    @IBOutlet var mediumShadow: UIView!
+   
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         questions = [Question]()
-        easyButton.pulsate()
-        mediumButton.pulsate()
-        hardButton.pulsate()
+        buttonShadow.pulsing()
+        mediumShadow.pulsing()
+        hardShadow.pulsing()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

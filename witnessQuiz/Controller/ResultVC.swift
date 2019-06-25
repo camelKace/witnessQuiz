@@ -70,10 +70,6 @@ class ResultVC: UIViewController {
         doneAnimation.frame = self.AVView.bounds
         doneAnimation.loopMode = .loop
         doneAnimation.play()
-        
-        //Adding shadow to buttons
-        addShadowButton(button: restartButton)
-        addShadowButton(button: homeButton)
     }
     
 }

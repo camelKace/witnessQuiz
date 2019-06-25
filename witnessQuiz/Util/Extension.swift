@@ -12,7 +12,20 @@ import UIKit
 let greenColor = UIColor(hexString: "7EB47C")
 let red = UIColor(hexString: "D55E62")
 let buttonColor = UIColor(hexString: "0B8AC5")
-
+extension UIView {
+    func pulsing() {
+        let pulse = CASpringAnimation(keyPath: "transform.scale")
+        pulse.duration = 0.4
+        pulse.fromValue = 0.98
+        pulse.toValue = 1.0
+        pulse.autoreverses = true
+        pulse.repeatCount = .infinity
+        pulse.initialVelocity = 0.5
+        pulse.damping = 1.0
+        
+        layer.add(pulse, forKey: nil)
+    }
+}
 extension UIColor {
     convenience init(red: Int, green: Int, blue: Int) {
         assert(red >= 0 && red <= 255, "Invalid red component")
@@ -29,9 +42,7 @@ extension UIColor {
             G: CGFloat((hex >> 08) & 0xff) / 255,
             B: CGFloat((hex >> 00) & 0xff) / 255
         )
-        
         self.init(red: components.R, green: components.G, blue: components.B, alpha: 1)
-        
     }
     
     convenience init(netHex:Int) {
@@ -56,12 +67,6 @@ extension UIColor {
             (a, r, g, b) = (255, 0, 0, 0)
         }
         self.init(red: CGFloat(r) / 255, green: CGFloat(g) / 255, blue: CGFloat(b) / 255, alpha: CGFloat(a) / 255)
-    }
-}
-
-extension UINavigationController {
-    func hideShadow(){
-        self.navigationBar.setValue(true, forKey: "hidesShadow")
     }
 }
 extension Array {

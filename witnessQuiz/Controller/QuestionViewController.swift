@@ -32,6 +32,7 @@ class QuestionViewController: UIViewController {
     @IBOutlet var choiceD: UIButton!
     @IBOutlet var nextButton: UIButton!
     @IBOutlet var image: UIImageView!
+    @IBOutlet var nextButtonShadow: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -95,7 +96,7 @@ class QuestionViewController: UIViewController {
             button.isEnabled = false
             button.isEnabled = false
         }
-        nextButton.pulsate()
+        nextButtonShadow.pulsing()
     }
     
     func resultUI(sender: UIButton) {
@@ -172,7 +173,7 @@ class QuestionViewController: UIViewController {
         thumbsDownView.alpha = 0
         thumbsUpView.alpha = 0
         
-        nextButton.layer.removeAllAnimations()
+        nextButtonShadow.layer.removeAllAnimations()
         choiceA.layer.removeAllAnimations()
         choiceB.layer.removeAllAnimations()
         choiceC.layer.removeAllAnimations()
@@ -182,7 +183,6 @@ class QuestionViewController: UIViewController {
         addShadowButton(button: choiceB)
         addShadowButton(button: choiceC)
         addShadowButton(button: choiceD)
-        addShadowButton(button: nextButton)
     }
 
     func restartQuiz() {

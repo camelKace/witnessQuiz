@@ -17,7 +17,7 @@ class EasyQuestionBank {
         list.append(Question(questionText: "Where was Jesus Born?", choiceA: "Bethlehem", choiceB: "Israel", choiceC: "Jerusalem", choiceD: "Egypt", answer: 1))
         list.append(Question(questionText: "What did David use to kill Goliath?", choiceA: "Stick", choiceB: "Sling and rock", choiceC: "Sword", choiceD: "Bow and arrow", answer: 2))
         list.append(Question(questionText: "Which of the following are not one of the 12 disciples?", choiceA: "Matthew", choiceB: "Andrew", choiceC: "Judas", choiceD: "Isaiah", answer: 4))
-        list.append(Question(questionText: "Which one of these match this Bible text? He will wipe out every tear from their eyes, and death will be no more...", choiceA: "Genesis 4:8", choiceB: "Psalms 21:8", choiceC: "1 Peter 5:5", choiceD: "Revelation 21:4", answer: 4))
+        list.append(Question(questionText: "Which one of these match this Bible text? \n He will wipe out every tear from their eyes, and death will be no more...", choiceA: "Genesis 4:8", choiceB: "Psalms 21:8", choiceC: "1 Peter 5:5", choiceD: "Revelation 21:4", answer: 4))
         list.append(Question(questionText: "What Bible character was swallowed whole by a fish?", choiceA: "Noah", choiceB: "Jonah", choiceC: "Daniel", choiceD: "Job", answer: 2))
         list.append(Question(questionText: "Lots wife turned into what when she looked back at the city of Sodom and Gomorrah?", choiceA: "Sand", choiceB: "Pillar of Salt", choiceC: "Dust", choiceD: "Ice", answer: 2))
         list.append(Question(questionText: "Who did Jehovah call his friend?", choiceA: "Jesus", choiceB: "Jeremiah", choiceC: "Moses", choiceD: "Abraham", answer: 4))
@@ -31,6 +31,10 @@ class EasyQuestionBank {
         list.append(Question(questionText: "Who was Enoch’s father?", choiceA: "Cain", choiceB: "Adam", choiceC: "Job", choiceD: "None of the above", answer: 1))
         list.append(Question(questionText: "Which one of these match this Bible text? And this good news of the Kingdom will be preached in all the inhabited earth... ", choiceA: "Matthew 24:14", choiceB: "Exodus 39:2", choiceC: "1 Chronicles 8:10", choiceD: "Zechariah 8:2", answer: 1))
         list.append(Question(questionText: "What sea did the Isrealites cross when leaving Egypt?", choiceA: "Red Sea", choiceB: "Indian Sea", choiceC: "Dead Sea", choiceD: "Jordan River", answer: 1))
+        list.append(Question(questionText: "Where was David born?", choiceA: "Bethlehem", choiceB: "Persia", choiceC: "Eygpt", choiceD: "Isreal", answer: 1))
+        list.append(Question(questionText: "What did Peter do to Jesus?", choiceA: "He stood up for him", choiceB: "He washed his feet", choiceC: "He denied him three times", choiceD: "None of the above", answer: 3))
+        list.append(Question(questionText: "What is the 8th commandment?", choiceA: "Remember the Sabbath day", choiceB: "You must not testify falsely", choiceC: "Remember the Passover", choiceD: "You must not steal", answer: 4))
+        list.append(Question(questionText: "Why did Moses not enter the Promised Land?", choiceA: "He had died already", choiceB: "He sinned at Meribah", choiceC: "He was too old", choiceD: "He ran away", answer: 2))
         
         shuffled = list[randomPick: 10]
     }
@@ -56,6 +60,7 @@ class EasyQuestionBank {
             list.append(Question(questionText: "What Bible book comes after Acts?", choiceA: "John", choiceB: "Matthew", choiceC: "Luke", choiceD: "Romans", answer: 4))
             list.append(Question(questionText: "How many children did Job have?", choiceA: "7 sons, 3 daughters", choiceB: "7 Sons, 7 Daughters", choiceC: "2 sons, 4 daughters", choiceD: "12 sons, 4 daughters", answer: 1))
             list.append(Question(questionText: "Psalm 83:18 proves that?", choiceA: "Evolution is wrong", choiceB: "God's name is Jehovah", choiceC: "God Created everything", choiceD: "None of the above", answer: 2))
+            list.append(Question(questionText: "Match the Bible verse. \n 'And let us consider one another to incite to love and fine works.'", choiceA: "Joel 2:1", choiceB: "Luke 3:20", choiceC: "Hebrews 10:24", choiceD: "Revelations 21:3,4", answer: 3))
             
             //TODO: Fact Check
             list.append(Question(questionText: "How many books of the Bible did Moses write?", choiceA: "10", choiceB: "15", choiceC: "2", choiceD: "5", answer: 4))
@@ -73,6 +78,7 @@ class EasyQuestionBank {
 //            list.append(Question(questionText: "Which King succeeded Herod when Joseph and Mary returned from Egypt?", choiceA: "", choiceB: "Archelaus", choiceC: "", choiceD: "", answer: 2))
 //            //TODO: Google hebrew names
 //            list.append(Question(questionText: "What was the Hebrew names of Shadrach, Meshach and Abednego?", choiceA: "", choiceB: "", choiceC: "Hananiah, Mishael & Azariah", choiceD: "", answer: 3))
+            
             list.append(Question(questionText: "How long did Enoch’s son Me·thuʹse·lah live?", choiceA: "969 years", choiceB: "805 years", choiceC: "450 years", choiceD: "1000 years", answer: 1))
             list.append(Question(questionText: "Which minerals could be found in the mountains of Palestine?", choiceA: "Gold", choiceB: "Steel", choiceC: "Aluminum", choiceD: "Iron and Copper", answer: 4))
             list.append(Question(questionText: "Which of these books is not part of the poetic books of the Bible?", choiceA: "Revelation", choiceB: "Psalms", choiceC: "Ecclesiastes", choiceD: "Job", answer: 1))

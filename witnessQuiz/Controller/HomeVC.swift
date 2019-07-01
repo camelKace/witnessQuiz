@@ -30,6 +30,9 @@ class HomeVC: UIViewController {
     @IBAction func aboutMePressed(_ sender: UIButton) {
         openSafari(for: "https://camelKace.wixsite.com/mysite")
     }
+    @IBAction func shareAppButtonPressed(_ sender: UIButton) {
+        share(sender: sender)
+    }
     
     @IBAction func questionFactoryPressed(_ sender: UIButton) {
         let alert = UIAlertController(title: "Sending Suggestions", message: "Sending a question requires that you also send the answer to the question. The answer needs to have scriptural backing sent along with it.", preferredStyle: UIAlertController.Style.alert)
@@ -54,7 +57,7 @@ class HomeVC: UIViewController {
 //        setQuestionBank(q: ServiceTrivia.init().shuffled)
 //    }
  
-    @objc func share(sender:UIView) {
+    func share(sender:UIButton) {
         UIGraphicsBeginImageContext(view.frame.size)
         view.layer.render(in: UIGraphicsGetCurrentContext()!)
         let image = UIImage(named: "Untitled")

@@ -5,5 +5,5 @@ target 'witnessQuiz' do
   use_frameworks!
 
 pod 'lottie-ios'
-
+pod 'Firebase/Core'
 end

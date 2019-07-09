@@ -9,11 +9,7 @@
 import UIKit
 import Lottie
 
-var timer = Timer()
-var isRunning = false
-var counter = 0
-
-class QuestionViewController: UIViewController {
+final class QuestionViewController: UIViewController {
     
     var questionBank: [Question]?
     var questionNumber: Int = 0
@@ -43,18 +39,38 @@ class QuestionViewController: UIViewController {
         super.viewWillAppear(animated)
         restartQuiz()
         setUpTimer()
-        if isServiceView == true {
-            image.image = UIImage(named: "shadow")
-        }
+        showServiceView()
     }
     
     @IBAction func nextButtonPressed(_ sender: Any) {
         questionNumber += 1
         updateQuestion()
-        if questionNumber == 10 {
+        if questionNumber == questionBank?.count {
             performSegue(withIdentifier: "results", sender: nil)
             timer.invalidate()
             isRunning = false
+        }
+    }
+    
+    @IBAction func buttonPressed(_ sender: UIButton) {
+        answerAnimation(sender: sender)
+        switch selectedAnswer {
+        case 1:
+            setupAnswersUI(correctButton: choiceA, wrongButtons: [choiceB,choiceC,choiceD])
+        case 2:
+            setupAnswersUI(correctButton: choiceB, wrongButtons: [choiceA, choiceC, choiceD])
+        case 3:
+            setupAnswersUI(correctButton: choiceC, wrongButtons: [choiceA, choiceB, choiceD])
+        case 4:
+            setupAnswersUI(correctButton: choiceD, wrongButtons: [choiceA, choiceB, choiceC])
+        default:
+            setupAnswersUI(correctButton: choiceA, wrongButtons: [choiceB,choiceC,choiceD])
+        }
+    }
+    
+    func showServiceView() {
+        if isServiceView == true {
+            image.image = UIImage(named: "shadow")
         }
     }
     
@@ -68,27 +84,11 @@ class QuestionViewController: UIViewController {
     counter += 1
     }
     
-    @IBAction func buttonPressed(_ sender: UIButton) {
-        resultUI(sender: sender)
-        switch selectedAnswer {
-        case 1:
-            setupAnswersUI(correct: choiceA, wrong: [choiceB,choiceC,choiceD])
-        case 2:
-            setupAnswersUI(correct: choiceB, wrong: [choiceA, choiceC, choiceD])
-        case 3:
-            setupAnswersUI(correct: choiceC, wrong: [choiceA, choiceB, choiceD])
-        case 4:
-            setupAnswersUI(correct: choiceD, wrong: [choiceA, choiceB, choiceC])
-        default:
-            setupAnswersUI(correct: choiceA, wrong: [choiceB,choiceC,choiceD])
-        }
-    }
-    
-    func setupAnswersUI(correct: UIButton, wrong: [UIButton]) {
-        correct.backgroundColor = greenColor
-        correct.flash()
-        correct.isEnabled = false
-        for button in wrong {
+    func setupAnswersUI(correctButton: UIButton, wrongButtons: [UIButton]) {
+        correctButton.backgroundColor = greenColor
+        correctButton.flash()
+        correctButton.isEnabled = false
+        for button in wrongButtons {
             button.backgroundColor = red
             button.backgroundColor = red
             button.backgroundColor = red
@@ -99,7 +99,7 @@ class QuestionViewController: UIViewController {
         nextButtonShadow.pulsing()
     }
     
-    func resultUI(sender: UIButton) {
+    func answerAnimation(sender: UIButton) {
         if sender.tag == selectedAnswer {
             settingAnimations(animationString: "2393-green-like", animationView: thumbsUpView)
             score += 1
@@ -118,71 +118,80 @@ class QuestionViewController: UIViewController {
         animationView.alpha = 1
         animation.play()
     }
+    
+    func setQuestionAndAnswers(arrayOfQuestions: [Question]) {
+        questionLabel.text = arrayOfQuestions[questionNumber].question
+        choiceA.setTitle(arrayOfQuestions[questionNumber].optionA, for: .normal)
+        choiceB.setTitle(arrayOfQuestions[questionNumber].optionB, for: .normal)
+        choiceC.setTitle(arrayOfQuestions[questionNumber].optionC, for: .normal)
+        choiceD.setTitle(arrayOfQuestions[questionNumber].optionD, for: .normal)
+        selectedAnswer = arrayOfQuestions[questionNumber].correctAnswer
+        choiceA.backgroundColor = buttonColor
+        choiceB.backgroundColor = buttonColor
+        choiceC.backgroundColor = buttonColor
+        choiceD.backgroundColor = buttonColor
+        choiceA.isEnabled = true
+        choiceB.isEnabled = true
+        choiceC.isEnabled = true
+        choiceD.isEnabled = true
+        //TODO make backing alerts
+        //          alertText = arrayOfQuestions[questionNumber].
+    }
 
     func updateQuestion() {
-        func switchQuestionBank(arrayOfQuestions: [Question]) {
-            questionLabel.text = arrayOfQuestions[questionNumber].question
-            choiceA.setTitle(arrayOfQuestions[questionNumber].optionA, for: .normal)
-            choiceB.setTitle(arrayOfQuestions[questionNumber].optionB, for: .normal)
-            choiceC.setTitle(arrayOfQuestions[questionNumber].optionC, for: .normal)
-            choiceD.setTitle(arrayOfQuestions[questionNumber].optionD, for: .normal)
-            selectedAnswer = arrayOfQuestions[questionNumber].correctAnswer
-            choiceA.backgroundColor = buttonColor
-            choiceB.backgroundColor = buttonColor
-            choiceC.backgroundColor = buttonColor
-            choiceD.backgroundColor = buttonColor
-            choiceA.isEnabled = true
-            choiceB.isEnabled = true
-            choiceC.isEnabled = true
-            choiceD.isEnabled = true
-            //TODO make backing alerts
-  //          alertText = arrayOfQuestions[questionNumber].
-        }
-        
-        if questionNumber <= 10 - 1{
-            if let questions = questionBank {
-                switchQuestionBank(arrayOfQuestions: questions)
-            } else {
-                print("questions value is nil")
+        if let questionBankCount = questionBank?.count {
+            if questionNumber <= questionBankCount - 1 {
+                if let questions = questionBank {
+                    setQuestionAndAnswers(arrayOfQuestions: questions)
+                } else {
+                    print("questions value is nil")
+                }
             }
         }
         updateUI()
     }
     
     func updateUI() {
-        //Update Score Label
         scoreLabel.text = "Score: \(score)"
         
-        //Update Question Number Label
-        if questionNumber != 10 {
-            questionCounter.text = "\(questionNumber + 1) / \(10)"
+        if questionNumber != questionBank?.count {
+            if let questionBankCount = questionBank?.count {
+                questionCounter.text = "\(questionNumber + 1) / \(questionBankCount)"
+            }
         }
         
-        //Update Progress View
+        if let questionBankCount = questionBank?.count {
+            if questionNumber == questionBankCount - 1 {
+                nextButton.setTitle("Finish Quiz", for: .normal)
+            }
+        }
+        updateProgressBarView()
+        addShadow()
+        removeAnimations()
+    }
+    
+    func updateProgressBarView() {
         UIView.animate(withDuration: 0.25, animations: {
             self.progressView.frame.size.width = (self.view.frame.width / CGFloat(10)) * CGFloat(self.questionNumber + 1)
-        self.progressView.layoutIfNeeded()
+            self.progressView.layoutIfNeeded()
         })
-        
-        // Update Button UI
-        if questionNumber == 10 - 1 {
-            nextButton.setTitle("Finish Quiz", for: .normal)
-        }
-        
-        //Hide Animation Views
-        thumbsDownView.alpha = 0
-        thumbsUpView.alpha = 0
-        
+    }
+    
+    func addShadow() {
+        addShadowButton(button: choiceA)
+        addShadowButton(button: choiceB)
+        addShadowButton(button: choiceC)
+        addShadowButton(button: choiceD)
+    }
+    
+    func removeAnimations() {
         nextButtonShadow.layer.removeAllAnimations()
         choiceA.layer.removeAllAnimations()
         choiceB.layer.removeAllAnimations()
         choiceC.layer.removeAllAnimations()
         choiceD.layer.removeAllAnimations()
-        
-        addShadowButton(button: choiceA)
-        addShadowButton(button: choiceB)
-        addShadowButton(button: choiceC)
-        addShadowButton(button: choiceD)
+        thumbsDownView.alpha = 0
+        thumbsUpView.alpha = 0
     }
 
     func restartQuiz() {
@@ -198,9 +207,10 @@ class QuestionViewController: UIViewController {
                 fatalError("ERROR: destination is nil")
             }
             destination.scre = score
-            destination.totalQuestions = 10
+            if let questionBankCount = questionBank?.count {
+                destination.totalQuestions = questionBankCount
+            }
         }
     }
-
     
 }

@@ -8,12 +8,11 @@
 
 import UIKit
 
-class TriviaLevelVC: UIViewController {
-    var questions: [Question]?
+final class TriviaLevelVC: UIViewController {
+    
     @IBOutlet var easyButton: UIButton!
     @IBOutlet var mediumButton: UIButton!
     @IBOutlet var hardButton: UIButton!
-    
     @IBOutlet var buttonShadow: UIView!
     @IBOutlet var hardShadow: UIView!
     @IBOutlet var mediumShadow: UIView!
@@ -23,7 +22,10 @@ class TriviaLevelVC: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        questions = [Question]()
+        pulsateButtons()
+    }
+    
+    func pulsateButtons() {
         buttonShadow.pulsing()
         mediumShadow.pulsing()
         hardShadow.pulsing()

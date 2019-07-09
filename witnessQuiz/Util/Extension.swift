@@ -9,6 +9,9 @@
 import Foundation
 import UIKit
 
+var timer = Timer()
+var isRunning = false
+var counter = 0
 let greenColor = UIColor(hexString: "7EB47C")
 let red = UIColor(hexString: "D55E62")
 let buttonColor = UIColor(hexString: "0B8AC5")
@@ -116,23 +119,6 @@ extension UIButton {
         flash.repeatCount = 2
         
         layer.add(flash, forKey: nil)
-    }
-    func shake() {
-        let shake = CASpringAnimation(keyPath: "position")
-        
-        shake.duration = 0.18
-        shake.autoreverses = true
-        shake.repeatCount = 2
-        
-        let fromPoint = CGPoint(x: center.x - 5, y: center.y)
-        let fromValue = NSValue(cgPoint: fromPoint)
-        shake.fromValue = fromValue
-        
-        let toPoint = CGPoint(x: center.x + 5, y: center.y)
-        let toValue = NSValue(cgPoint: toPoint)
-        shake.toValue = toValue
-        
-        layer.add(shake, forKey: nil)
     }
 }
 func addShadowButton(button: UIButton) {

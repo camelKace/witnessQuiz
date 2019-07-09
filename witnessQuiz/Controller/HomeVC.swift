@@ -10,23 +10,22 @@ import UIKit
 import MessageUI
 import SafariServices
 
-class HomeVC: UIViewController {
+final class HomeVC: UIViewController {
     
-    var questions: [Question]?
     @IBOutlet var bibleTriviaButton: UIButton!
     @IBOutlet var questionFactoryButton: UIButton!
     @IBOutlet var bibleTriviaShadow: UIView!
     @IBOutlet var questionFactoryShadow: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        bibleTriviaShadow.pulsing()
-        questionFactoryShadow.pulsing()
+        pulsateButtons()
     }
-    
+
     @IBAction func aboutMePressed(_ sender: UIButton) {
         openSafari(for: "https://camelKace.wixsite.com/mysite")
     }
@@ -57,6 +56,11 @@ class HomeVC: UIViewController {
 //        setQuestionBank(q: ServiceTrivia.init().shuffled)
 //    }
  
+    func pulsateButtons() {
+        bibleTriviaShadow.pulsing()
+        questionFactoryShadow.pulsing()
+    }
+    
     func share(sender:UIButton) {
         UIGraphicsBeginImageContext(view.frame.size)
         view.layer.render(in: UIGraphicsGetCurrentContext()!)

@@ -96,6 +96,8 @@ class EasyQuestionBank {
             list.append(Question(questionText: "How many books are in the Hebrew Scriptures?", choiceA: "5", choiceB: "17", choiceC: "39", choiceD: "20", answer: 3))
             list.append(Question(questionText: "How many books are in the Greek scriptures?", choiceA: "27", choiceB: "40", choiceC: "15", choiceD: "5", answer: 1))
             list.append(Question(questionText: "How many books of the Hebrew scriptures did Moses write?", choiceA: "2", choiceB: "6", choiceC: "1", choiceD: "9", answer: 2))
+            list.append(Question(questionText: "How long were Joseph's family dwelling in Eygpt?", choiceA: "50 years", choiceB: "20 years", choiceC: "320 years", choiceD: "215 years", answer: 4))
+            list.append(Question(questionText: "Who is Joseph's great grandfather?", choiceA: "Abraham", choiceB: "Adam", choiceC: "Daniel", choiceD: "Job", answer: 1))
             
             shuffled = list[randomPick: 10]
         }

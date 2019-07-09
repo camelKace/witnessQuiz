@@ -9,7 +9,7 @@
 import UIKit
 import Lottie
 
-class ResultVC: UIViewController {
+final class ResultVC: UIViewController {
     
     var questions: [Question]?
     var scre:Int = 0
@@ -27,6 +27,10 @@ class ResultVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        setUpCounter()
+    }
+    
+    func setUpCounter() {
         let displayLink = CADisplayLink(target: self, selector: #selector(handleUpdate))
         displayLink.add(to: .main, forMode: .default)
     }
@@ -46,7 +50,12 @@ class ResultVC: UIViewController {
     }
     
     func setupUI() {
-        // Set up Mins and Secs Label
+        setUpDurationLabel()
+        setUpFeedbackLabel()
+        setUpDoneAnimation()
+    }
+    
+    func setUpDurationLabel() {
         let minutes = "\(String(format: "%02d", counter / 60)) Min"
         let seconds = "\(String(format: "%02d", counter % 60)) Sec"
         
@@ -55,15 +64,17 @@ class ResultVC: UIViewController {
         } else {
             timerLabel.text = "\(minutes) \(seconds)"
         }
-        
-        //Update Feedback label depending on score
+    }
+    
+    func setUpFeedbackLabel() {
         if scre >= 8 {
             feedbackLabel.text = "Great job, keep it up!"
         } else {
             feedbackLabel.text = "Keep going, try again!"
         }
+    }
     
-        // Done animation
+    func setUpDoneAnimation() {
         let doneAnimation =  AnimationView(name: "676-done")
         AVView.contentMode = .scaleAspectFit
         self.AVView.addSubview(doneAnimation)
@@ -71,5 +82,4 @@ class ResultVC: UIViewController {
         doneAnimation.loopMode = .loop
         doneAnimation.play()
     }
-    
 }

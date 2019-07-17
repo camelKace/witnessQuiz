@@ -23,7 +23,7 @@ final class HomeVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        pulsateButtons()
+        pulsateViews(views: [bibleTriviaShadow, questionFactoryShadow])
     }
 
     @IBAction func aboutMePressed(_ sender: UIButton) {
@@ -55,11 +55,6 @@ final class HomeVC: UIViewController {
 //    @IBAction func serviceModePressed(_ sender: UIButton) {
 //        setQuestionBank(q: ServiceTrivia.init().shuffled)
 //    }
- 
-    func pulsateButtons() {
-        bibleTriviaShadow.pulsing()
-        questionFactoryShadow.pulsing()
-    }
     
     func share(sender:UIButton) {
         UIGraphicsBeginImageContext(view.frame.size)

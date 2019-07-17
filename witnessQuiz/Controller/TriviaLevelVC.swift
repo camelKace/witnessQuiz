@@ -22,13 +22,7 @@ final class TriviaLevelVC: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        pulsateButtons()
-    }
-    
-    func pulsateButtons() {
-        buttonShadow.pulsing()
-        mediumShadow.pulsing()
-        hardShadow.pulsing()
+        pulsateViews(views: [buttonShadow, mediumShadow, hardShadow])
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

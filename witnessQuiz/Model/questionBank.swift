@@ -82,7 +82,7 @@ class EasyQuestionBank {
             list.append(Question(questionText: "How long did Enoch’s son Me·thuʹse·lah live?", choiceA: "969 years", choiceB: "805 years", choiceC: "450 years", choiceD: "1000 years", answer: 1))
             list.append(Question(questionText: "Which minerals could be found in the mountains of Palestine?", choiceA: "Gold", choiceB: "Steel", choiceC: "Aluminum", choiceD: "Iron and Copper", answer: 4))
             list.append(Question(questionText: "Which of these books is not part of the poetic books of the Bible?", choiceA: "Revelation", choiceB: "Psalms", choiceC: "Ecclesiastes", choiceD: "Job", answer: 1))
-            list.append(Question(questionText: "Match the bible verse. \n I say to you: You are Peter, and on this rock I will build my congregation, and the gates of the Grave will not overpower it.", choiceA: "John 16:18", choiceB: "Matthew 16:18", choiceC: "Mark 2:1", choiceD: "Luke 1:1", answer: 2))
+            list.append(Question(questionText: "Match the Bible verse. \n I say to you: You are Peter, and on this rock I will build my congregation, and the gates of the Grave will not overpower it.", choiceA: "John 16:18", choiceB: "Matthew 16:18", choiceC: "Mark 2:1", choiceD: "Luke 1:1", answer: 2))
             list.append(Question(questionText: "How many days were the 12 spies in the land of Canaan?", choiceA: "30", choiceB: "15", choiceC: "5", choiceD: "40", answer: 4))
             list.append(Question(questionText: "What was special about Melchizedek?", choiceA: "He was a King and Priest at the same time", choiceB: "Was the oldest man to live", choiceC: "Was the richest King", choiceD: "Had 100 children", answer: 1))
             list.append(Question(questionText: "Who was the prophet that anointed the first King of Isreal?", choiceA: "Isaiah", choiceB: "Samuel", choiceC: "Elisha", choiceD: "Elijah", answer: 2))
@@ -101,7 +101,6 @@ class EasyQuestionBank {
             
             shuffled = list[randomPick: 10]
         }
-        
     }
 
 class ServiceTrivia {

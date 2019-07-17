@@ -15,6 +15,12 @@ var counter = 0
 let greenColor = UIColor(hexString: "7EB47C")
 let red = UIColor(hexString: "D55E62")
 let buttonColor = UIColor(hexString: "0B8AC5")
+
+func pulsateViews(views: [UIView]) {
+    for view in views {
+        view.pulsing()
+    }
+}
 extension UIView {
     func pulsing() {
         let pulse = CASpringAnimation(keyPath: "transform.scale")
@@ -121,9 +127,11 @@ extension UIButton {
         layer.add(flash, forKey: nil)
     }
 }
-func addShadowButton(button: UIButton) {
-    button.layer.shadowColor = UIColor.lightGray.cgColor
-    button.layer.shadowRadius = 3
-    button.layer.shadowOpacity = 4
-    button.layer.shadowOffset = CGSize(width: 0, height: 0)
+func addShadowButton(buttons: [UIButton]) {
+    for button in buttons {
+        button.layer.shadowColor = UIColor.lightGray.cgColor
+        button.layer.shadowRadius = 3
+        button.layer.shadowOpacity = 4
+        button.layer.shadowOffset = CGSize(width: 0, height: 0)
+    }
 }

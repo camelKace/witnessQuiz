@@ -223,6 +223,15 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="layer.maskToBounds" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vJz-zW-o1Y">
+                                <rect key="frame" x="18" y="597" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" image="icons8-home-35"/>
+                                <connections>
+                                    <action selector="homeButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="wfh-Al-F5E"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -245,6 +254,7 @@
                         <outlet property="choiceB" destination="Cu6-p9-faq" id="5bV-eS-TUd"/>
                         <outlet property="choiceC" destination="mof-J3-b1A" id="kHc-wy-Lg9"/>
                         <outlet property="choiceD" destination="CyJ-G2-7mf" id="Np0-Ix-emd"/>
+                        <outlet property="homeButton" destination="vJz-zW-o1Y" id="lq3-S4-arA"/>
                         <outlet property="image" destination="zk6-es-O4X" id="Hrg-C3-PfY"/>
                         <outlet property="nextButton" destination="j4A-UK-wyx" id="LDm-NU-3Dg"/>
                         <outlet property="nextButtonShadow" destination="tuO-4g-EKZ" id="8me-Xc-lPJ"/>
@@ -255,11 +265,12 @@
                         <outlet property="thumbsDownView" destination="cKA-tf-cSb" id="KvX-x5-i6U"/>
                         <outlet property="thumbsUpView" destination="lEH-8K-SJq" id="q6i-sU-p8Z"/>
                         <segue destination="Qy5-Wy-lYg" kind="show" identifier="results" id="KbZ-zj-zva"/>
+                        <segue destination="BUQ-VB-zst" kind="custom" identifier="home" customClass="OHCircleSegue" customModule="witnessQuiz" customModuleProvider="target" id="rEY-M5-avx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3018" y="99"/>
+            <point key="canvasLocation" x="3016.8000000000002" y="98.50074962518741"/>
         </scene>
         <!--Trivia LevelVC-->
         <scene sceneID="uVE-sc-OIl">
@@ -578,7 +589,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lNm-ZI-pR5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3668" y="99"/>
+            <point key="canvasLocation" x="4262" y="99"/>
         </scene>
         <!--HomeVC-->
         <scene sceneID="byE-gb-9Lw">
@@ -657,7 +668,7 @@
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="layer.maskToBounds" value="YES"/>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <segue destination="IW1-fX-7mL" kind="show" customClass="OHCircleSegue" customModule="witnessQuiz" customModuleProvider="target" id="EUY-N0-X3M"/>
+                                            <segue destination="IW1-fX-7mL" kind="show" id="EUY-N0-X3M"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -743,9 +754,11 @@
         <image name="bible" width="1200" height="600"/>
         <image name="icons8-administrative-tools-48" width="48" height="48"/>
         <image name="icons8-book-filled-48" width="48" height="48"/>
+        <image name="icons8-home-35" width="35" height="35"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="dX6-XF-roK"/>
+        <segue reference="rEY-M5-avx"/>
+        <segue reference="EUY-N0-X3M"/>
         <segue reference="qVo-Pb-kS5"/>
     </inferredMetricsTieBreakers>
 </document>

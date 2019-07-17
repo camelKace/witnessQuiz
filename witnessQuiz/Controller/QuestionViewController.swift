@@ -29,6 +29,7 @@ final class QuestionViewController: UIViewController {
     @IBOutlet var nextButton: UIButton!
     @IBOutlet var image: UIImageView!
     @IBOutlet var nextButtonShadow: UIView!
+    @IBOutlet var homeButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,7 +40,25 @@ final class QuestionViewController: UIViewController {
         super.viewWillAppear(animated)
         restartQuiz()
         setUpTimer()
-        showServiceView()
+ //       showServiceView()
+    }
+    @IBAction func homeButtonPressed(_ sender: Any) {
+        if questionNumber >= 1 {
+            let alert = UIAlertController(title: "Are you sure you want to navigate home?", message: "You will lose your progress on your current quiz.", preferredStyle: UIAlertController.Style.alert)
+            let okAction = UIAlertAction(title: "Yes", style: UIAlertAction.Style.default) {
+                UIAlertAction in
+                self.performSegue(withIdentifier: "home", sender: nil)
+            }
+            let cancelAction = UIAlertAction(title: "No", style: UIAlertAction.Style.cancel) { (UIAlertAction) in
+                alert.dismiss(animated: true, completion: nil)
+            }
+            alert.addAction(okAction)
+            alert.addAction(cancelAction)
+            self.present(alert, animated: true, completion: nil)
+        } else {
+            performSegue(withIdentifier: "home", sender: nil)
+        }
+        
     }
     
     @IBAction func nextButtonPressed(_ sender: Any) {
@@ -68,11 +87,11 @@ final class QuestionViewController: UIViewController {
         }
     }
     
-    func showServiceView() {
-        if isServiceView == true {
-            image.image = UIImage(named: "shadow")
-        }
-    }
+//    func showServiceView() {
+//        if isServiceView == true {
+//            image.image = UIImage(named: "shadow")
+//        }
+//    }
     
     func setUpTimer() {
         counter = 0
@@ -85,9 +104,6 @@ final class QuestionViewController: UIViewController {
     }
     
     func setupAnswersUI(correctButton: UIButton, wrongButtons: [UIButton]) {
-        correctButton.backgroundColor = greenColor
-        correctButton.flash()
-        correctButton.isEnabled = false
         for button in wrongButtons {
             button.backgroundColor = red
             button.backgroundColor = red
@@ -96,6 +112,9 @@ final class QuestionViewController: UIViewController {
             button.isEnabled = false
             button.isEnabled = false
         }
+        correctButton.backgroundColor = greenColor
+        correctButton.flash()
+        correctButton.isEnabled = false
         nextButtonShadow.pulsing()
     }
     
@@ -165,9 +184,16 @@ final class QuestionViewController: UIViewController {
                 nextButton.setTitle("Finish Quiz", for: .normal)
             }
         }
+        roundButton()
         updateProgressBarView()
         addShadow()
         removeAnimations()
+    }
+    
+    func roundButton() {
+        homeButton.layer.cornerRadius = homeButton.frame.width/2
+        homeButton.layer.borderWidth = 1
+        homeButton.layer.borderColor = UIColor.white.cgColor
     }
     
     func updateProgressBarView() {
@@ -178,10 +204,7 @@ final class QuestionViewController: UIViewController {
     }
     
     func addShadow() {
-        addShadowButton(button: choiceA)
-        addShadowButton(button: choiceB)
-        addShadowButton(button: choiceC)
-        addShadowButton(button: choiceD)
+        addShadowButton(buttons: [choiceA, choiceB, choiceC, choiceD, homeButton])
     }
     
     func removeAnimations() {
